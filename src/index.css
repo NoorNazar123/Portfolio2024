@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+h2 {
+  font-family: "Dancing Script", cursive;
+}
+.clip-path {
+  width: 100%;
+  height: 500px;
+  clip-path: circle(10% at 0 0);
+  transition: all 1s ease-in;
+}
+.clip-path:hover {
+  clip-path: circle(100%);
+}
+
+.layout {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0.5rem 2rem;
+}
+
+@media (max-width: 600px) {
+  .layout {
+    width: 100%;
+    margin: 8px auto;
+    padding: 1.5rem 1rem;
+  }
+}
+
+.nav-link::after {
+  content: "";
+} /* App.css */
+.nav-link {
+  position: relative; /* For positioning the ::after element */
+  display: inline-block; /* Allows width control */
+  padding: 0.5rem 0; /* Add padding */
+  color: white; /* Default text color */
+}
+
+.nav-link::after {
+  content: ""; /* Empty content for the pseudo-element */
+  position: absolute; /* Position it absolutely */
+  left: 0; /* Start from the left */
+  bottom: 3px; /* Position at the bottom of the link */
+  height: 4px; /* Height of the line */
+  width: 0; /* Start with width 0 */
+  background-color: #191970;
+  transition: width 0.8s ease; /* Animation for width change */
+}
+
+.nav-link:hover::after {
+  width: 100%; /* Expand the line to full width on hover */
+}
+.home-container {
+  position: relative;
+}
+.home-container::after {
+  content: ""; /* Empty content for the pseudo-element */
+  position: absolute; /* Position it absolutely */
+  left: 0; /* Start from the left */
+  bottom: 3px; /* Position at the bottom of the link */
+  height: 100%; /* Height of the line */
+  width: 100%; /* Start with width 0 */
+  background-color: rgba(0, 0, 0, 0.681);
+  /* Color of the line */
+  transition: width 0.8s ease; /* Animation for width change */
+}
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1200px); /* Moves by 4 items (4 * 300px) */
+  }
+}
+
+.animate-slide {
+  animation: slide 15s linear infinite alternate;
+}
