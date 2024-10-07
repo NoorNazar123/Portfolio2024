@@ -51,7 +51,7 @@ h2 {
   bottom: 3px; /* Position at the bottom of the link */
   height: 4px; /* Height of the line */
   width: 0; /* Start with width 0 */
-  background-color: #191970;
+  background-color: #000;
   transition: width 0.8s ease; /* Animation for width change */
 }
 
@@ -68,7 +68,7 @@ h2 {
   bottom: 3px; /* Position at the bottom of the link */
   height: 100%; /* Height of the line */
   width: 100%; /* Start with width 0 */
-  background-color: rgba(0, 0, 0, 0.681);
+  background-color: rgba(0, 0, 0, 0.359);
   /* Color of the line */
   transition: width 0.8s ease; /* Animation for width change */
 }

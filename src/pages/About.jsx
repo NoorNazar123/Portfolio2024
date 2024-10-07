@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Heading from "../components/Heading";
 import Paragraph from "../components/Paragraph";
-import mypic from "../assets/myPicture.jpg";
+import mypic from "../assets/auth.png";
 import Button from "../components/Button";
 import {
   AiOutlinePhone,
   AiOutlineWhatsApp,
   AiOutlineMail,
 } from "react-icons/ai";
+import DynamicTitle from "../components/DynamicTitle";
 
 const About = () => {
   const [skills, setSkills] = useState(true);
@@ -33,15 +34,16 @@ const About = () => {
   };
 
   return (
-    <div className="px-4 md:px-8 lg:px-16">
-      <div className="layout text-center">
+    <div className="px-4 md:px-8 lg:px-16 ">
+      <DynamicTitle title="About Me" />
+      <div className="layout md:text-center">
         <div className="pt-[20px] md:pt-[90px]">
           <Heading
-            className="md:text-[45px] md:font-[900] my-4"
+            className="text-[45px] md:text-[45px] md:font-[900] my-6 my:4"
             labelText="About Me"
           />
           <Paragraph
-            className="mx-auto w-full md:w-[60%] pr-2"
+            className="mx-1 md:mx-auto w-full md:w-[60%] "
             labelText="I am Muhammad Noor Nazar, a frontend developer
             specializing in React.js and also exploring MERN stack. Explore my journey and
             projects."
@@ -49,7 +51,7 @@ const About = () => {
         </div>
 
         {/* Main Layout: Flex for larger screens and block for smaller ones */}
-        <div className="flex flex-col md:flex-row justify-between py-[40px] mt-[60px]">
+        <div className="flex flex-col gap-4 md:flex-row justify-between py-[40px] mt-1 md:mt-[60px]">
           {/* Left Section */}
           <div className="left w-full md:w-[60%] mx-auto mb-6 pt-[20px] text-left">
             <Heading
@@ -73,17 +75,17 @@ const About = () => {
 
             <div className="flex flex-wrap mt-6">
               <Button
-                className="my-2 md:my-4 ml-0 mr-4 bg-white py-2 px-4 rounded-md shadow-md"
+                className="my-2 md:my-4 ml-0 mr-4 bg-white py-3 px-4 rounded-md shadow-md hover:text-gray-700 hover:bg-[rgba(247,247,247,0.54)]"
                 label="Skills"
                 onClick={handleSkills}
               />
               <Button
-                className="my-2 md:my-4 ml-0 mr-4 bg-white py-2 px-4 rounded-md shadow-md"
+                className="my-2 md:my-4 ml-0 mr-4 bg-white py-3 px-4 rounded-md shadow-md hover:text-gray-700 hover:bg-[rgba(247,247,247,0.54)]"
                 label="Education"
                 onClick={handleEducation}
               />
               <Button
-                className="my-2 md:my-4 ml-0 mr-4 bg-white py-2 px-4 rounded-md shadow-md"
+                className="my-2 md:my-4 ml-0 mr-4 bg-white py-3 px-4 rounded-md shadow-md hover:text-gray-700 hover:bg-[rgba(247,247,247,0.54)]"
                 label="Contact Me"
                 onClick={handleContact}
               />
@@ -93,50 +95,18 @@ const About = () => {
             <div className="mt-4">
               {skills && (
                 <div className="p-4 bg-white rounded-lg shadow-md max-w-lg">
-                  <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
+                  <h2 className="text-xl md:text-2xl font-bold  mb-4">
                     Web Development Skills
                   </h2>
-                  <ul className="grid grid-cols-2 gap-4">
-                    <li className="flex items-center">
-                      <span className="text-blue-500 font-semibold mr-2">
-                        HTML & CSS
-                      </span>
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-blue-500 font-semibold mr-2">
-                        JavaScript
-                      </span>
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-blue-500 font-semibold mr-2">
-                        React.js
-                      </span>
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-blue-500 font-semibold mr-2">
-                        Git & GitHub
-                      </span>
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-blue-500 font-semibold mr-2">
-                        Tailwind CSS
-                      </span>
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-blue-500 font-semibold mr-2">
-                        API Integration
-                      </span>
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-blue-500 font-semibold mr-2">
-                        Responsive Design
-                      </span>
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-blue-500 font-semibold mr-2">
-                        Strapi
-                      </span>
-                    </li>
+                  <ul className="grid grid-cols-2 gap-4 text-gray-700 font-semibold mr-2">
+                    <li>HTML & CSS</li>
+                    <li>JavaScript</li>
+                    <li>React.js</li>
+                    <li> Git & GitHub</li>
+                    <li>Tailwind CSS</li>
+                    <li> API Integration</li>
+                    <li> Responsive Design</li>
+                    <li>Strapi</li>
                   </ul>
                 </div>
               )}
@@ -148,13 +118,13 @@ const About = () => {
                   </h2>
                   <ul className="space-y-2">
                     <li className="flex items-center">
-                      <span className="text-blue-500 font-semibold mr-2">
+                      <span className="text-gray-800 font-semibold mr-2">
                         University:
                       </span>
                       BSCS from Federal Urdu University, Karachi
                     </li>
                     <li className="flex items-center">
-                      <span className="text-blue-500 font-semibold mr-2">
+                      <span className="text-gray-800 font-semibold mr-2">
                         College:
                       </span>
                       Govt. College For Men, Nazimabad
@@ -170,17 +140,17 @@ const About = () => {
                   </h2>
                   <ul className="space-y-2">
                     <li className="flex items-center">
-                      <AiOutlinePhone className="text-blue-500 mr-2" />
+                      <AiOutlinePhone className=" mr-2 scale-125 duration-300 hover:scale-150" />
 
                       <a
                         href="tel:03178813001"
-                        className="text-gray-800 hover:text-blue-500"
+                        className=" hover:text-blue-800"
                       >
                         0317 8813001
                       </a>
                     </li>
                     <li className="flex items-center">
-                      <AiOutlineWhatsApp className="text-blue-500 mr-2" />
+                      <AiOutlineWhatsApp className=" mr-2 scale-125 duration-300 hover:scale-150" />
 
                       <a
                         href="https://wa.me/923178813001"
@@ -192,7 +162,7 @@ const About = () => {
                       </a>
                     </li>
                     <li className="flex items-center">
-                      <AiOutlineMail className="text-blue-500 mr-2" />
+                      <AiOutlineMail className=" mr-2 scale-125 duration-300 hover:scale-150" />
 
                       <a
                         href="mailto:noorenazar.prog@gmail.com"
@@ -208,9 +178,9 @@ const About = () => {
           </div>
 
           {/* Right Section (Image) */}
-          <div className="right w-full md:w-[40%] mx-auto mt-8 md:mt-0 overflow-hidden h-auto md:h-[600px] rounded-[20px]">
+          <div className="right w-full md:w-[40%] mx-auto mt-8 md:mt-0 overflow-hidden h-auto md:h-[600px] md:translate-y-[1rem] rounded-[20px] hover:shadow-multi-color duration-200">
             <img
-              className="object-cover shadow-lg w-full h-full"
+              className="object-cover shadow-lg w-full h-full hover:scale-110 duration-500"
               src={mypic}
               alt="My Picture"
             />

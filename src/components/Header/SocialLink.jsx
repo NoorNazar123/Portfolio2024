@@ -6,7 +6,7 @@ const SocialLink = ({ href, icon: IconComponent }) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-[30px] hover:scale-110 duration-500 text-[#191970]"
+      className="text-[30px] hover:scale-110 duration-500"
     >
       <IconComponent />
     </a>

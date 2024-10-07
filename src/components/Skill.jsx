@@ -99,9 +99,9 @@ export default function TechnologySlider() {
     <div className="relative overflow-hidden">
       <Slider {...settings}>
         {technologies.map((tech) => (
-          <div key={tech.id} className="pl-8 md:pl-12">
-            <div className="w-[280px] flex items-center justify-center bg-[#f8f8f8] border rounded-lg shadow-lg py-[80px]">
-              <div className="text-center">
+          <div key={tech.id} className="pl-8 md:pl-12 p-4">
+            <div className="w-[280px] flex items-center hover:shadow-multi-color hover:scale-105 duration-300 justify-center bg-[#f8f8f8] border rounded-lg shadow-lg py-[80px]">
+              <div className="text-center ">
                 <span className="text-6xl block mb-4">{tech.icon}</span>
                 <span className=" font-semibold text-xl">{tech.name}</span>
               </div>

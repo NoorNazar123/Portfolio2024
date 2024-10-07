@@ -5,7 +5,7 @@ import Heading from "./Heading";
 
 const OfferSection = () => {
   return (
-    <div className="pt-[40px] relative bg-gray-100">
+    <div className="pt-[40px] relative bg-gray-50">
       <div className="layout text-center mb-[50px]">
         <Paragraph
           className="text-[30px] my-4"

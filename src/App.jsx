@@ -2,16 +2,14 @@ import React from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
 import { Outlet } from "react-router-dom";
-import About from "./pages/About";
+import ScrollToTop from "./components/ScrollToTop";
 
-// https://10web-site.ai/133/absolute-monster/
-// https://10web-site.ai/190/harmless-ladybird/projects/
 const App = () => {
   return (
     <div>
+      <ScrollToTop />
       <Header />
       <Outlet />
-
       <Footer />
     </div>
   );

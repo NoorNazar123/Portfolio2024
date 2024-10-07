@@ -5,10 +5,12 @@ import {
   AiOutlineEnvironment,
   AiOutlineWhatsApp,
 } from "react-icons/ai";
+import DynamicTitle from "../components/DynamicTitle";
 
 const Contact = () => {
   return (
-    <div className="bg-gray-50 py-12 px-6 md:px-12">
+    <div className="py-12 px-6 md:px-12 ">
+      <DynamicTitle title="Contact" />
       <div className=" layout max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center">
@@ -23,13 +25,11 @@ const Contact = () => {
         <div className="mt-12 flex flex-col md:flex-row justify-between items-center">
           {/* Contact Form */}
           <div className="bg-white shadow-lg rounded-lg p-6 w-full md:w-[60%] mb-8 md:mb-0">
-            <h3 className="text-2xl font-semibold text-gray-700 mb-6">
-              Contact Form
-            </h3>
+            <h3 className="text-2xl font-semibold  mb-6">Contact Form</h3>
             <form className="space-y-4">
               {/* Name */}
               <div className="flex flex-col">
-                <label className="text-gray-700 mb-2" htmlFor="name">
+                <label className="mb-2" htmlFor="name">
                   Full Name
                 </label>
                 <input
@@ -42,7 +42,7 @@ const Contact = () => {
 
               {/* Email */}
               <div className="flex flex-col">
-                <label className="text-gray-700 mb-2" htmlFor="email">
+                <label className=" mb-2" htmlFor="email">
                   Email Address
                 </label>
                 <input
@@ -55,7 +55,7 @@ const Contact = () => {
 
               {/* Message */}
               <div className="flex flex-col">
-                <label className="text-gray-700 mb-2" htmlFor="message">
+                <label className=" mb-2" htmlFor="message">
                   Message
                 </label>
                 <textarea
@@ -69,7 +69,7 @@ const Contact = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300"
+                className="bg-white shadow-md  py-3 px-6 rounded-lg hover:bg-[#f7f7f7] transition duration-300"
               >
                 Send Message
               </button>
@@ -80,7 +80,7 @@ const Contact = () => {
           <div className="w-full md:w-[35%] text-center md:text-left space-y-6">
             {/* Phone Number */}
             <div className="flex flex-col items-center md:items-start space-y-4">
-              <AiOutlinePhone className="text-blue-500 text-3xl" />
+              <AiOutlinePhone className=" scale-125 hover:scale-150 text-3xl" />
               <p className="text-lg text-gray-700">
                 Call:{" "}
                 <a
@@ -94,7 +94,7 @@ const Contact = () => {
 
             {/* Email Address */}
             <div className="flex flex-col items-center md:items-start space-y-4">
-              <AiOutlineMail className="text-blue-500 text-3xl" />
+              <AiOutlineMail className=" scale-125 hover:scale-150 text-3xl" />
               <p className="text-lg text-gray-700">
                 Email:{" "}
                 <a
@@ -107,7 +107,7 @@ const Contact = () => {
             </div>
             {/* WhatsApp Number */}
             <div className="flex flex-col items-center md:items-start space-y-4">
-              <AiOutlineWhatsApp className="text-blue-500 text-3xl" />
+              <AiOutlineWhatsApp className=" scale-125 hover:scale-150 text-3xl" />
               <p className="text-lg text-gray-700">
                 WhatsApp:{" "}
                 <a
@@ -123,7 +123,7 @@ const Contact = () => {
 
             {/* Location */}
             <div className="flex flex-col items-center md:items-start space-y-4">
-              <AiOutlineEnvironment className="text-blue-500 text-3xl" />
+              <AiOutlineEnvironment className=" scale-125 hover:scale-150 text-3xl" />
               <p className="text-lg text-gray-700">Karachi, Pakistan</p>
             </div>
           </div>

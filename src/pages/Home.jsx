@@ -1,16 +1,20 @@
-import React from "react";
-import networkVideo from "../assets/v4.mp4";
+import React, { Suspense, lazy } from "react";
+import networkVideo from "../assets/v1.mp4";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
-import OfferSection from "../components/OfferSection";
-import Freelance from "../components/Freelance";
-import About from "./About";
-import Contact from "./Contact";
+import DynamicTitle from "../components/DynamicTitle";
+
+// Lazy load components
+const OfferSection = lazy(() => import("../components/OfferSection"));
+const Freelance = lazy(() => import("../components/Freelance"));
+const ProjectCards = lazy(() => import("../components/ProjectCards"));
+const GoogleMap = lazy(() => import("../components/GoogleMap"));
 
 const Home = () => {
   return (
     <>
-      <div className=" home-container relative ">
+      <DynamicTitle title="Home" />
+      <div className=" home-container relative z-0">
         <video className="w-full h-[90vh] object-cover" autoPlay loop muted>
           <source src={networkVideo} type="video/mp4" />
           Your browser does not support the video tag.
@@ -29,25 +33,29 @@ const Home = () => {
             Explore my portfolio to see my skills and projects.
           </p>
           <div className="mt-4">
-            <Link to="/api/v1/about">
+            <Link to="/api/v1/noor-e-nazar/about">
               <Button
                 className="bg-white text-[18px] font-[500] hover:bg-opacity-50 text-black px-6 py-3 rounded-sm mx-3 my-2 md:my-1"
                 label="About Me"
               />
             </Link>
-            <Link to="/api/v1/project">
+            <Link to="/api/v1/noor-e-nazar/project">
               <Button
-                className="hover:bg-white bg-opacity-50 text-white hover:text-black px-4 py-3 border rounded-sm mx-3"
+                className="hover:bg-white bg-opacity-90 text-white hover:text-black px-4 py-3 border rounded-sm mx-3"
                 label="View Projects"
               />
             </Link>
           </div>
         </div>
       </div>
-      <OfferSection />
-      <About />
-      <Freelance />
-      <Contact />
+      <Suspense fallback={<div>Loading...</div>}>
+        {/* <About /> */}
+        <OfferSection />
+        <ProjectCards />
+        <Freelance />
+        {/* <Contact /> */}
+        <GoogleMap />
+      </Suspense>
     </>
   );
 };

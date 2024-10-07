@@ -18,16 +18,16 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="/" element={<Home />} />
-      <Route path="/api/v1/about" element={<About />} />
-      <Route path="/api/v1/Project" element={<Projects />} />
-      <Route path="/api/v1/contact" element={<Contact />} />
+      <Route path="/api/v1/noor-e-nazar/about" element={<About />} />
+      <Route path="/api/v1/noor-e-nazar/Project" element={<Projects />} />
+      <Route path="/api/v1/noor-e-nazar/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </>
 );
