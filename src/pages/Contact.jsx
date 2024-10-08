@@ -26,8 +26,16 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="bg-white shadow-lg rounded-lg p-6 w-full md:w-[60%] mb-8 md:mb-0">
             <h3 className="text-2xl font-semibold  mb-6">Contact Form</h3>
-            <form className="space-y-4">
-              {/* Name */}
+            <form
+              className="space-y-4"
+              action="https://formsubmit.co/noor.nazar.programmer.prog@gmail.com"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="_next"
+                value="https://your-redirect-url.com"
+              />
               <div className="flex flex-col">
                 <label className="mb-2" htmlFor="name">
                   Full Name
@@ -35,41 +43,44 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
-                  className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                  name="name"
+                  required
+                  className="border border-gray-300 p-3 rounded-lg shadow-sm focus:outline-none focus:shadow-md focus:border-transparent"
                   placeholder="Your Name"
                 />
               </div>
 
-              {/* Email */}
               <div className="flex flex-col">
-                <label className=" mb-2" htmlFor="email">
+                <label className="mb-2" htmlFor="email">
                   Email Address
                 </label>
                 <input
                   type="email"
                   id="email"
-                  className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                  name="email"
+                  required
+                  className="border border-gray-300 p-3 rounded-lg shadow-sm focus:outline-none focus:shadow-md focus:border-transparent"
                   placeholder="you@example.com"
                 />
               </div>
 
-              {/* Message */}
               <div className="flex flex-col">
-                <label className=" mb-2" htmlFor="message">
+                <label className="mb-2" htmlFor="message">
                   Message
                 </label>
                 <textarea
                   id="message"
                   rows="5"
-                  className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                  name="message"
+                  required
+                  className="border border-gray-300 p-3 rounded-lg shadow-sm focus:outline-none focus:shadow-md focus:border-transparent"
                   placeholder="Your Message"
                 />
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
-                className="bg-white shadow-md  py-3 px-6 rounded-lg hover:bg-[#f7f7f7] transition duration-300"
+                className="bg-white shadow-md py-3 px-6 rounded-lg hover:bg-[#f7f7f7] transition duration-300"
               >
                 Send Message
               </button>

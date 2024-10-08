@@ -9,7 +9,9 @@ const Footer = () => {
         <div className="container mx-auto py-10 flex flex-col md:flex-row justify-between items-center">
           {/* Logo Section */}
           <div className="mb-4 md:mb-0 hover:scale-110 duration-300 cursor-pointer">
-            <Heading className="text-[35px]" labelText="Noor e Nazar" />
+            <Link to="/">
+              <Heading className="text-[35px]" labelText="Noor e Nazar" />
+            </Link>
           </div>
 
           {/* Links Section */}
