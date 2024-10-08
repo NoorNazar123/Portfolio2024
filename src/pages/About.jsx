@@ -9,6 +9,7 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import DynamicTitle from "../components/DynamicTitle";
+import { motion } from "framer-motion";
 
 const About = () => {
   const [skills, setSkills] = useState(true);
@@ -34,10 +35,20 @@ const About = () => {
   };
 
   return (
-    <div className="px-4 md:px-8 lg:px-16 ">
+    <motion.div
+      className="px-4 md:px-8 lg:px-16 "
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <DynamicTitle title="About Me" />
       <div className="layout md:text-center">
-        <div className="pt-[20px] md:pt-[90px]">
+        <motion.div
+          className="pt-[20px] md:pt-[90px]"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <Heading
             className="text-[45px] md:text-[45px] md:font-[900] my-6 my:4"
             labelText="About Me"
@@ -48,32 +59,42 @@ const About = () => {
             specializing in React.js and also exploring MERN stack. Explore my journey and
             projects."
           />
-        </div>
+        </motion.div>
 
         {/* Main Layout: Flex for larger screens and block for smaller ones */}
         <div className="flex flex-col gap-4 md:flex-row justify-between py-[40px] mt-1 md:mt-[60px]">
           {/* Left Section */}
           <div className="left w-full md:w-[60%] mx-auto mb-6 pt-[20px] text-left">
-            <Heading
-              className="text-[40px] md:text-[50px]"
-              labelText="Noor Nazar's"
-            />
-            <Heading
-              className="text-[40px] md:text-[50px] mt-6"
-              labelText="Development Journey"
-            />
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Heading
+                className="text-[40px] md:text-[50px]"
+                labelText="Noor Nazar's"
+              />
+              <Heading
+                className="text-[40px] md:text-[50px] mt-6"
+                labelText="Development Journey"
+              />
 
-            <Paragraph
-              className="mt-8"
-              labelText="Hi, I'm Muhammad Noor, a passionate frontend developer with
+              <Paragraph
+                className="mt-8"
+                labelText="Hi, I'm Muhammad Noor, a passionate frontend developer with
               expertise in React.js and the MERN stack. I specialize in creating
               dynamic, responsive web applications with a focus on clean design
               and seamless performance. Currently, I'm diving deeper into
               full-stack development to expand my skills in backend technologies.
               Let's connect and collaborate on something amazing!"
-            />
-
-            <div className="flex flex-wrap mt-6">
+              />
+            </motion.div>
+            <motion.div
+              className="flex flex-wrap mt-6"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <Button
                 className="my-2 md:my-4 ml-0 mr-4 bg-white py-3 px-4 rounded-md shadow-md hover:text-gray-700 hover:bg-[rgba(247,247,247,0.54)]"
                 label="Skills"
@@ -89,10 +110,15 @@ const About = () => {
                 label="Contact Me"
                 onClick={handleContact}
               />
-            </div>
+            </motion.div>
 
             {/* Skills, Education, Contact Section */}
-            <div className="mt-4">
+            <motion.div
+              className="mt-4"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               {skills && (
                 <div className="p-4 bg-white rounded-lg shadow-md max-w-lg">
                   <h2 className="text-xl md:text-2xl font-bold  mb-4">
@@ -174,20 +200,25 @@ const About = () => {
                   </ul>
                 </div>
               )}
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Section (Image) */}
-          <div className="right w-full md:w-[40%] mx-auto mt-8 md:mt-0 overflow-hidden h-auto md:h-[600px] md:translate-y-[1rem] rounded-[20px] hover:shadow-multi-color duration-200">
+          <motion.div
+            className="right w-full md:w-[40%] mx-auto mt-8 md:mt-0 overflow-hidden h-auto md:h-[600px] md:translate-y-[1rem] rounded-[20px] hover:shadow-multi-color duration-200"
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <img
               className="object-cover shadow-lg w-full h-full hover:scale-110 duration-500"
               src={mypic}
               alt="My Picture"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const CustimBounceX = ({ children, delay = 0.5, x = 0 }) => {
   return (
     <motion.div
-      initial={{ x: 50, opacity: 0 }}
+      initial={{ x: -90, opacity: 0 }}
       animate={{
         x,
         opacity: 1,

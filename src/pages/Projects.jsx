@@ -6,6 +6,7 @@ import NextWeb from "../assets/nextjsweb.jpg";
 import portfolio from "../assets/portfolio.webp";
 import Button from "../components/Button";
 import DynamicTitle from "../components/DynamicTitle";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
@@ -64,9 +65,19 @@ const Projects = () => {
       : ProjectCards.filter((project) => project.technology === filter);
 
   return (
-    <div className="layout min-h-screen p-8">
+    <motion.div
+      className="layout min-h-screen p-8"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <DynamicTitle title="Projects" />
-      <section className="text-center my-16">
+      <motion.section
+        className="text-center my-16"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <h2 className="text-[45px] font-bold mb-4 text-gray-800">
           Highlighted Projects ({filteredProjects.length})
         </h2>
@@ -74,10 +85,15 @@ const Projects = () => {
           Explore my key projects that showcase my skills in web development,
           including <br /> YouTube clone and more.
         </p>
-      </section>
+      </motion.section>
 
       {/* Filter Buttons */}
-      <div className="flex flex-wrap space-x-4 my-8">
+      <motion.div
+        className="flex flex-wrap space-x-4 my-8"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <Button
           className="px-4 py-2 duration-500 shadow-md rounded-md hover:rounded-xl hover:text-gray-500"
           onClick={() => setFilter("All")}
@@ -104,9 +120,14 @@ const Projects = () => {
           onClick={() => setFilter("Vanilla JS")}
           label="Vanilla JS"
         />
-      </div>
+      </motion.div>
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <motion.div
+        className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+        initial={{ opacity: 0, y: 50, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
         {filteredProjects.map((project) => (
           <div
             key={project.id}
@@ -127,8 +148,8 @@ const Projects = () => {
             </a>
           </div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

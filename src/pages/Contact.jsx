@@ -6,30 +6,68 @@ import {
   AiOutlineWhatsApp,
 } from "react-icons/ai";
 import DynamicTitle from "../components/DynamicTitle";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   return (
-    <div className="py-12 px-6 md:px-12 ">
+    <motion.div
+      className="py-12 px-6 md:px-12"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <DynamicTitle title="Contact" />
-      <div className=" layout max-w-7xl mx-auto">
+      <div className="layout max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-800">Get in Touch</h2>
-          <p className="text-gray-600 mt-4">
+          <motion.h2
+            className="text-4xl font-bold text-gray-800"
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Get in Touch
+          </motion.h2>
+          <motion.p
+            className="text-gray-600 mt-4"
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             Feel free to contact me via the form below or reach out via the
             provided contact details.
-          </p>
+          </motion.p>
         </div>
 
         {/* Contact Form + Details */}
-        <div className="mt-12 flex flex-col md:flex-row justify-between items-center">
+        <motion.div
+          className="mt-12 flex flex-col md:flex-row justify-between items-center"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           {/* Contact Form */}
-          <div className="bg-white shadow-lg rounded-lg p-6 w-full md:w-[60%] mb-8 md:mb-0">
-            <h3 className="text-2xl font-semibold  mb-6">Contact Form</h3>
-            <form
+          <motion.div
+            className="bg-white shadow-lg rounded-lg p-6 w-full md:w-[60%] mb-8 md:mb-0"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.h3
+              className="text-2xl font-semibold mb-6"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              Contact Form
+            </motion.h3>
+            <motion.form
               className="space-y-4"
               action="https://formsubmit.co/noor.nazar.programmer.prog@gmail.com"
               method="POST"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
             >
               <input
                 type="hidden"
@@ -84,14 +122,23 @@ const Contact = () => {
               >
                 Send Message
               </button>
-            </form>
-          </div>
+            </motion.form>
+          </motion.div>
 
           {/* Contact Information */}
-          <div className="w-full md:w-[35%] text-center md:text-left space-y-6">
+          <motion.div
+            className="w-full md:w-[35%] text-center md:text-left space-y-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             {/* Phone Number */}
-            <div className="flex flex-col items-center md:items-start space-y-4">
-              <AiOutlinePhone className=" scale-125 hover:scale-150 text-3xl" />
+            <motion.div
+              className="flex flex-col items-center md:items-start space-y-4"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <AiOutlinePhone className="scale-125 hover:scale-150 text-3xl" />
               <p className="text-lg text-gray-700">
                 Call:{" "}
                 <a
@@ -101,11 +148,15 @@ const Contact = () => {
                   +92 317 8813001
                 </a>
               </p>
-            </div>
+            </motion.div>
 
             {/* Email Address */}
-            <div className="flex flex-col items-center md:items-start space-y-4">
-              <AiOutlineMail className=" scale-125 hover:scale-150 text-3xl" />
+            <motion.div
+              className="flex flex-col items-center md:items-start space-y-4"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <AiOutlineMail className="scale-125 hover:scale-150 text-3xl" />
               <p className="text-lg text-gray-700">
                 Email:{" "}
                 <a
@@ -115,10 +166,15 @@ const Contact = () => {
                   noorenazar.prog@gmail.com
                 </a>
               </p>
-            </div>
+            </motion.div>
+
             {/* WhatsApp Number */}
-            <div className="flex flex-col items-center md:items-start space-y-4">
-              <AiOutlineWhatsApp className=" scale-125 hover:scale-150 text-3xl" />
+            <motion.div
+              className="flex flex-col items-center md:items-start space-y-4"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <AiOutlineWhatsApp className="scale-125 hover:scale-150 text-3xl" />
               <p className="text-lg text-gray-700">
                 WhatsApp:{" "}
                 <a
@@ -130,17 +186,21 @@ const Contact = () => {
                   +92 317 8813001
                 </a>
               </p>
-            </div>
+            </motion.div>
 
             {/* Location */}
-            <div className="flex flex-col items-center md:items-start space-y-4">
-              <AiOutlineEnvironment className=" scale-125 hover:scale-150 text-3xl" />
+            <motion.div
+              className="flex flex-col items-center md:items-start space-y-4"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <AiOutlineEnvironment className="scale-125 hover:scale-150 text-3xl" />
               <p className="text-lg text-gray-700">Karachi, Pakistan</p>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

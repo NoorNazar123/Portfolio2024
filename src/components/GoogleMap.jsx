@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const GoogleMap = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,10 +25,18 @@ const GoogleMap = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center py-8">
-      <div
+    <motion.div
+      className="flex justify-center items-center py-8"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.div
         id="google-map"
         className="rounded-lg shadow-lg md:w-[90%] lg:w-[85%] xl:w-[80%] 2xl:w-[75%]"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
       >
         {isVisible && (
           <iframe
@@ -40,8 +49,8 @@ const GoogleMap = () => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
