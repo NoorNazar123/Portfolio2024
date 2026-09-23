@@ -1,13 +1,11 @@
 import React, { Suspense, lazy } from "react";
-import networkVideo from "../assets/v1.mp4";
 import { Link } from "react-router-dom";
-import Button from "../components/Button";
-import DynamicTitle from "../components/DynamicTitle";
-import CustomBounce from "../components/FramerMotion.jsx/CustomBounce";
-import CustomBounceX from "../components/FramerMotion.jsx/CustimBounceX";
 import { motion } from "framer-motion";
 
-// Lazy load components
+import Button from "../components/Button";
+import DynamicTitle from "../components/DynamicTitle";
+
+// Lazy-loaded sections
 const OfferSection = lazy(() => import("../components/OfferSection"));
 const Freelance = lazy(() => import("../components/Freelance"));
 const ProjectCards = lazy(() => import("../components/ProjectCards"));
@@ -15,67 +13,192 @@ const GoogleMap = lazy(() => import("../components/GoogleMap"));
 
 const Home = () => {
   return (
-    <motion.div
+    <motion.main
+      className="bg-[#0a0a0a] text-white"
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <DynamicTitle title="Home" />
-      <div className=" home-container text-white relative z-0">
-        <video className="w-full h-[90vh] object-cover" autoPlay loop muted>
-          <source src={networkVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <motion.div
-          className=" md:w-[100%] absolute top-0 z-[1] text-center pt-[80px] md:pt-[160px]"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-        >
-          <CustomBounce delay="0.5">
-            <h1 className=" relative text-[40px] leading-[35px] font-[700] md:text-[60px] md:leading-[45px] md:font-[800] md:mt-4 mt-1">
-              Showcasing
-            </h1>
-            <h1 className=" relative text-[40px] leading-[35px] font-[700] md:text-[70px] md:leading-[45px] md:font-[800] md:mt-4 mt-1">
-              Dev Excellence
-            </h1>
-          </CustomBounce>
-          <CustomBounce delay="0.8">
-            <p className="text-[20px] leading-[35px] font-[300] pt-8 px-3">
-              I am a Frontend Developer specializing in JavaScript and React.js.
-              <br />
-              Explore my portfolio to see my skills and projects.
-            </p>
-          </CustomBounce>
-          <div className="mt-10 md:flex gap-4 justify-center items-center ">
-            <Link to="/api/v1/noor-e-nazar/about">
-              <CustomBounceX delay="1">
-                <Button
-                  className="bg-white w-[15rem] md:w-[10rem] rounded-md block text-[20px] mx-auto font-[500] hover:bg-opacity-50 text-black px-6 py-4  my-3 md:my-1"
-                  label="About Me"
-                />
-              </CustomBounceX>
-            </Link>
-            <Link to="/api/v1/noor-e-nazar/project">
-              <CustomBounce delay="1">
-                <Button
-                  className="hover:bg-white w-[15rem] md:w-[10rem] rounded-md text-[18px] block mx-auto bg-opacity-90 hover:text-black px-4 py-4 my-3 border "
-                  label="View Projects"
-                />
-              </CustomBounce>
-            </Link>
+
+      {/* Hero */}
+      <section className="relative min-h-[calc(100vh-80px)] overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute left-[-150px] top-[10%] h-[400px] w-[400px] rounded-full bg-purple-600/20 blur-[120px]" />
+          <div className="absolute right-[-150px] bottom-[5%] h-[400px] w-[400px] rounded-full bg-blue-600/20 blur-[120px]" />
+        </div>
+
+        {/* Grid background */}
+        <div className="absolute inset-0 opacity-[0.08] pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:50px_50px]" />
+
+        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-80px)] max-w-7xl items-center px-6 py-20 lg:px-8">
+          <div className="grid w-full items-center gap-16 lg:grid-cols-2">
+
+            {/* Left content */}
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.p
+                className="mb-5 text-sm font-medium uppercase tracking-[0.3em] text-gray-400"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                Frontend Developer
+              </motion.p>
+
+              <motion.h1
+                className="max-w-3xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.7 }}
+              >
+                Muhammad Noor
+                <span className="block bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
+                  Nazar
+                </span>
+              </motion.h1>
+
+              <motion.h2
+                className="mt-6 text-2xl font-semibold text-gray-300 sm:text-3xl"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                Building modern web experiences
+              </motion.h2>
+
+              <motion.p
+                className="mt-6 max-w-xl text-base leading-8 text-gray-400 sm:text-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                I build responsive, scalable interfaces with React and
+                Next.js, while expanding into Python, FastAPI, and AI-powered
+                products.
+              </motion.p>
+
+              {/* Tech stack */}
+              <motion.div
+                className="mt-8 flex flex-wrap gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+              >
+                {["React", "Next.js", "JavaScript", "Python", "FastAPI"].map(
+                  (tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300 backdrop-blur-sm"
+                    >
+                      {tech}
+                    </span>
+                  )
+                )}
+              </motion.div>
+
+              {/* Buttons */}
+              <motion.div
+                className="mt-10 flex flex-col gap-4 sm:flex-row"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+              >
+                <Link to="/api/v1/noor-e-nazar/Project">
+                  <Button
+                    label="View Projects"
+                    className="w-full rounded-lg bg-white px-7 py-4 font-semibold text-black transition duration-300 hover:bg-gray-200 sm:w-auto"
+                  />
+                </Link>
+
+                <Link to="/api/v1/noor-e-nazar/contact">
+                  <Button
+                    label="Let's Work Together"
+                    className="w-full rounded-lg border border-white/20 bg-white/5 px-7 py-4 font-semibold text-white transition duration-300 hover:bg-white/10 sm:w-auto"
+                  />
+                </Link>
+              </motion.div>
+            </motion.div>
+
+            {/* Right visual */}
+            <motion.div
+              className="relative hidden min-h-[450px] items-center justify-center lg:flex"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            >
+              <div className="absolute h-[320px] w-[320px] rounded-full border border-white/10" />
+              <div className="absolute h-[420px] w-[420px] rounded-full border border-white/5" />
+
+              <motion.div
+                className="relative flex h-[280px] w-[280px] items-center justify-center rounded-3xl border border-white/10 bg-white/[0.04] shadow-2xl backdrop-blur-xl"
+                animate={{
+                  y: [0, -15, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <div className="text-center">
+                  <div className="text-7xl font-bold text-white">
+                    &lt;/&gt;
+                  </div>
+
+                  <p className="mt-5 text-sm uppercase tracking-[0.3em] text-gray-500">
+                    Build • Ship • Improve
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Floating cards */}
+              <motion.div
+                className="absolute left-0 top-20 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl"
+                animate={{ y: [0, -10, 0] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                React
+              </motion.div>
+
+              <motion.div
+                className="absolute bottom-20 right-0 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl"
+                animate={{ y: [0, 10, 0] }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                FastAPI
+              </motion.div>
+            </motion.div>
           </div>
-        </motion.div>
-      </div>
-      <Suspense fallback={<div>Loading...</div>}>
-        {/* <About /> */}
+        </div>
+      </section>
+
+      {/* Existing sections — keep for now */}
+      <Suspense
+        fallback={
+          <div className="bg-[#0a0a0a] py-20 text-center text-gray-400">
+            Loading...
+          </div>
+        }
+      >
         <OfferSection />
         <ProjectCards />
         <Freelance />
-        {/* <Contact /> */}
         <GoogleMap />
       </Suspense>
-    </motion.div>
+    </motion.main>
   );
 };
 

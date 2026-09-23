@@ -2,32 +2,30 @@ import NavItems from "./NavItems";
 
 const Navbar = ({ isOpen, setIsOpen }) => {
   const navItems = [
-    { id: 1, path: "/api/v1/noor-e-nazar/about", label: "About Me" },
-    { id: 2, path: "/api/v1/noor-e-nazar/Project", label: "Projects " },
-    { id: 3, path: "/api/v1/noor-e-nazar/contact", label: "Contact Me" },
+    { id: 1, path: "/about", label: "About Me" },
+    { id: 2, path: "/projects", label: "Projects" },
+    { id: 3, path: "/contact", label: "Contact Me" },
   ];
 
   const closeNav = () => {
     setIsOpen(false);
   };
+
   return (
-    <>
-      <nav
-        className={`absolute right-2  top-[110%]  rounded-lg w-[96%] md:w-[20%] bg-white md:h-[60vh] justify-center py-[40px] z-[-1] duration-1000 ${
-          isOpen
-            ? "opacity-100 translate-x-0"
-            : "opacity-0 -translate-x-full md:-translate-y-full  "
-        } md:flex items-center gap-8 ]`}
-      >
-        <ul className="flex flex-col  gap-8 items-center">
-          {navItems.map((item) => (
-            <li className="nav-link" key={item.id} onClick={closeNav}>
-              <NavItems path={item.path} label={item.label} />
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </>
+    <nav
+      className={`absolute right-4 top-full w-[calc(100%-2rem)] rounded-xl border border-white/10 bg-[#111113] shadow-2xl transition-all duration-300 md:right-8 md:w-[280px] ${isOpen
+          ? "visible translate-y-0 opacity-100"
+          : "invisible -translate-y-4 opacity-0"
+        }`}
+    >
+      <ul className="flex flex-col gap-2 p-4">
+        {navItems.map((item) => (
+          <li key={item.id} onClick={closeNav}>
+            <NavItems path={item.path} label={item.label} />
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

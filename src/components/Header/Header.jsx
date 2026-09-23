@@ -2,56 +2,74 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import SocialLinks from "./SocialLinks";
 import { Link } from "react-router-dom";
-import CustomBounce from "../FramerMotion.jsx/CustomBounce";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const navbartoggle = () => {
-    setIsOpen(!isOpen);
-    console.log("click", isOpen);
+    setIsOpen((prev) => !prev);
   };
+
   return (
-    <header className="bg-white flex justify-between shadow-md px-[20px] py-4 md:px-[100px] items-center sticky top-0 z-[1] ">
-      <Link to="/">
-        <CustomBounce delay="0.3">
-          <h2 className="text-[30px] hover:scale-105 duration-300 leading-[27px] font-[600] md:text-[45px] md:leading-[75px] md:font-[900]">
-            Noor eNazar
-          </h2>
-        </CustomBounce>
-      </Link>
-      <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#09090b]/80 backdrop-blur-xl">
+      <div className="layout">
+        <div className="flex h-20 items-center justify-between">
+          {/* Logo */}
+          <Link to="/" onClick={() => setIsOpen(false)}>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.03 }}
+            >
+              <div className="flex flex-col">
+                <span className="text-xl font-bold tracking-tight text-white md:text-2xl">
+                  Noor e Nazar
+                </span>
 
-      <CustomBounce delay="0.5">
-        <div
-          className="block opacity-[80%] scale-50 md:scale-100 cursor-pointer"
-          onClick={navbartoggle}
-        >
-          <div
-            className={`${
-              isOpen
-                ? " translate-y-[.50rem] rotate-45 opacity-[50%] "
-                : "block"
-            } w-[45px] h-[4px] rounded-sm bg-black my-2 duration-[.3s]`}
-          ></div>
-          <div
-            className={`${
-              isOpen ? "hidden" : "block"
-            } w-[45px] h-[4px] rounded-sm bg-black my-2`}
-          ></div>
-          <div
-            className={`${
-              isOpen
-                ? " translate-y-[-.20rem] rotate-[-45deg] opacity-[50%] "
-                : "block"
-            } w-[45px] h-[4px] rounded-sm bg-black my-2 duration-[.3s]`}
-          ></div>
+                <span className="text-[10px] uppercase tracking-[0.25em] text-zinc-500">
+                  Developer · Builder
+                </span>
+              </div>
+            </motion.div>
+          </Link>
+
+          {/* Desktop / Mobile Navigation */}
+          <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
+
+          {/* Right side */}
+          <div className="flex items-center gap-5">
+            {/* Social links */}
+            <div className="hidden md:block">
+              <SocialLinks />
+            </div>
+
+            {/* Menu button */}
+            <button
+              type="button"
+              onClick={navbartoggle}
+              aria-label={isOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={isOpen}
+              className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10 md:hidden"
+            >
+              <span
+                className={`h-px w-5 bg-white transition duration-300 ${isOpen ? "translate-y-[3px] rotate-45" : ""
+                  }`}
+              />
+
+              <span
+                className={`h-px w-5 bg-white transition duration-300 ${isOpen ? "opacity-0" : ""
+                  }`}
+              />
+
+              <span
+                className={`h-px w-5 bg-white transition duration-300 ${isOpen ? "-translate-y-[3px] -rotate-45" : ""
+                  }`}
+              />
+            </button>
+          </div>
         </div>
-      </CustomBounce>
-
-      <div>
-        <CustomBounce delay="0.8">
-          <SocialLinks />
-        </CustomBounce>
       </div>
     </header>
   );

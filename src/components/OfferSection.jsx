@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import Paragraph from "./Paragraph";
 import Skill from "./Skill";
@@ -6,50 +5,46 @@ import Heading from "./Heading";
 
 const OfferSection = () => {
   return (
-    <motion.div
-      className="pt-[40px] relative bg-gray-50"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="layout text-center mb-[50px]">
+    <section className="relative overflow-hidden bg-[#0a0a0a] py-24 text-white">
+      {/* Background glow */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-purple-600/10 blur-[120px]" />
+
+      <div className="layout relative z-10">
+        {/* Section heading */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          className="mx-auto max-w-3xl text-center"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-zinc-500">
+            My Toolkit
+          </p>
+
+          <Heading
+            className="text-4xl md:text-6xl"
+            labelText="Technologies I Work With"
+          />
+
           <Paragraph
-            className="text-[30px] my-4"
-            labelText="Noor offers a wide range of services"
+            className="mx-auto mt-6 max-w-2xl text-base text-zinc-400 md:text-lg"
+            labelText="A growing toolkit focused on modern frontend development, backend engineering, and AI-powered product development."
           />
         </motion.div>
+
+        {/* Technology slider */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          className="mt-14"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-        >
-          <Paragraph
-            className="text-[30px] mb-[50px]"
-            labelText="tailored to meet your project needs."
-          />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-        >
-          <Heading className="text-[45px] mb-[40px]" labelText="Skills" />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
-          className="mx-auto mb-[80px]"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
         >
           <Skill />
         </motion.div>
       </div>
-    </motion.div>
+    </section>
   );
 };
 

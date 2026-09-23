@@ -1,155 +1,285 @@
 import React, { useState } from "react";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
+
 import youtube from "../assets/youtube1.jpg";
 import renie from "../assets/renies.jpg";
-import graphicWeb from "../assets/graphicdev.jpg";
+import graphicWeb from "../assets/lobstr.png";
 import NextWeb from "../assets/nextjsweb.jpg";
 import portfolio from "../assets/portfolio.webp";
-import Button from "../components/Button";
+import teamHub from "../assets/team-hub.png";
+
 import DynamicTitle from "../components/DynamicTitle";
-import { motion } from "framer-motion";
+import Button from "../components/Button";
+
+const projects = [
+  {
+    id: 1,
+    title: "Team Hub",
+    category: "Full Stack + AI",
+    description:
+      "A full-stack team management application built with React, FastAPI, PostgreSQL, JWT authentication, Cloudinary, and Gemini AI.",
+    image: teamHub,
+    liveUrl: "https://engineering-notes-ten.vercel.app/",
+    githubUrl:
+      "https://github.com/NoorNazar123/engineering-notes/tree/main/front-mini-app",
+    technologies: [
+      "React",
+      "FastAPI",
+      "PostgreSQL",
+      "JWT",
+      "Cloudinary",
+      "Gemini AI",
+    ],
+  },
+  {
+    id: 2,
+    title: "Renie",
+    category: "Professional Work",
+    description:
+      "A professional frontend project focused on translating Figma designs into responsive React interfaces with attention to detail and performance.",
+    image: renie,
+    liveUrl: "https://www.renie.io/",
+    technologies: ["React", "Tailwind CSS", "Figma", "REST API"],
+  },
+  {
+    id: 3,
+    title: "Lobstr",
+    category: "Professional Work",
+    description:
+      "A professional web project focused on building and maintaining a modern responsive frontend experience with attention to usability, clean UI, and performance.",
+    image: graphicWeb,
+    liveUrl: "https://www.lobstr.io/",
+    technologies: ["React", "Frontend", "Responsive UI"],
+  },
+  {
+    id: 4,
+    title: "Next.js Web App",
+    category: "Frontend",
+    description:
+      "A modern frontend experiment built with Next.js and Aceternity UI, focused on component-based development and modern interface design.",
+    image: NextWeb,
+    liveUrl:
+      "https://nextjs-with-aceternity-ui-git-main-noor-nazars-projects.vercel.app/",
+    technologies: ["Next.js", "React", "Aceternity UI"],
+  },
+  {
+    id: 5,
+    title: "YouTube Clone",
+    category: "Frontend",
+    description:
+      "A React-based YouTube clone using API integration to practice dynamic data fetching, reusable components, and frontend application architecture.",
+    image: youtube,
+    liveUrl: "https://zingy-brigadeiros-cf2f51.netlify.app/",
+    technologies: ["React", "JavaScript", "RapidAPI"],
+  },
+  {
+    id: 6,
+    title: "Portfolio",
+    category: "Frontend",
+    description:
+      "A personal portfolio website built to showcase my frontend development work, projects, skills, and professional journey.",
+    image: portfolio,
+    liveUrl: "https://comforting-concha-965fde.netlify.app/",
+    technologies: ["HTML", "CSS", "JavaScript"],
+  },
+];
+
+const filters = [
+  "All",
+  "Full Stack + AI",
+  "Professional Work",
+  "Frontend",
+];
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
 
-  const ProjectCards = [
-    {
-      id: 1,
-      title: "YouTube Clone",
-      description:
-        "Developed a YouTube clone in React.js with RapidAPI integration, showcasing frontend development and API integration skills.",
-      image: youtube,
-      link: "https://zingy-brigadeiros-cf2f51.netlify.app/",
-      technology: "React.js",
-    },
-    {
-      id: 2,
-      title: "Renie",
-      description:
-        "Specialized in converting complex Figma designs into React components, ensuring precise attention to design and development principles.",
-      image: renie,
-      link: "https://www.renie.io/",
-      technology: "MERN",
-    },
-    {
-      id: 3,
-      title: "Graphic Web",
-      description:
-        "Developed a static website for a client using HTML, CSS, and JavaScript, with GSAP for engaging animations.",
-      image: graphicWeb,
-      link: "https://symphonious-marzipan-f6b121.netlify.app/",
-      technology: "Vanilla JS",
-    },
-    {
-      id: 4,
-      title: "Next.js Web App",
-      description:
-        "Created a static web application with Next.js using basic knowledge and the Aceternity UI framework.",
-      image: NextWeb,
-      link: "https://nextjs-with-aceternity-ui-git-main-noor-nazars-projects.vercel.app/",
-      technology: "Next.js",
-    },
-    {
-      id: 5,
-      title: "Portfolio",
-      description:
-        "Developed A personal portfolio  static website using HTML, CSS, and JavaScript.",
-      image: portfolio,
-      link: "https://comforting-concha-965fde.netlify.app/",
-      technology: "MERN",
-    },
-  ];
-
   const filteredProjects =
     filter === "All"
-      ? ProjectCards
-      : ProjectCards.filter((project) => project.technology === filter);
+      ? projects
+      : projects.filter((project) => project.category === filter);
 
   return (
-    <motion.div
-      className="layout min-h-screen p-8"
+    <motion.main
+      className="relative min-h-screen overflow-hidden bg-[#0a0a0a] py-20 text-white"
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-    >
-      <DynamicTitle title="Projects" />
-      <motion.section
-        className="text-center my-16"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h2 className="text-[45px] font-bold mb-4 text-gray-800">
-          Highlighted Projects ({filteredProjects.length})
-        </h2>
-        <p className="text-lg text-gray-800">
-          Explore my key projects that showcase my skills in web development,
-          including <br /> YouTube clone and more.
-        </p>
-      </motion.section>
+    > <DynamicTitle title="Projects" />
 
-      {/* Filter Buttons */}
-      <motion.div
-        className="flex flex-wrap space-x-4 my-8"
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Button
-          className="px-4 py-2 duration-500 shadow-md rounded-md hover:rounded-xl hover:text-gray-500"
-          onClick={() => setFilter("All")}
-          label="All"
-        />
 
-        <Button
-          className="px-4 py-2 duration-500 shadow-md rounded-md hover:rounded-xl hover:text-gray-500 my-2"
-          onClick={() => setFilter("React.js")}
-          label="React.js"
-        />
-        <Button
-          className="px-4 py-2 duration-500 shadow-md rounded-md hover:rounded-xl hover:text-gray-500 my-2"
-          onClick={() => setFilter("Next.js")}
-          label="Next.js"
-        />
-        <Button
-          className="px-4 py-2 duration-500 shadow-md rounded-md hover:rounded-xl hover:text-gray-500 my-2"
-          onClick={() => setFilter("MERN")}
-          label="MERN"
-        />
-        <Button
-          className="px-4 py-2 duration-500 shadow-md rounded-md hover:rounded-xl hover:text-gray-500 my-2"
-          onClick={() => setFilter("Vanilla JS")}
-          label="Vanilla JS"
-        />
-      </motion.div>
+      {/* Background glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute left-[-200px] top-[15%] h-[400px] w-[400px] rounded-full bg-purple-600/10 blur-[140px]" />
 
-      <motion.div
-        className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
-        initial={{ opacity: 0, y: 50, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        {filteredProjects.map((project) => (
-          <div
-            key={project.id}
-            className=" shadow-md hover:shadow-multi-color hover:scale-110 duration-300 rounded-md overflow-hidden"
-          >
-            <a href={project.link} target="_blank" rel="noopener noreferrer">
-              <div className=" overflow-hidden">
-                <img
-                  className="w-full h-[250px] scale-100 hover:scale-125 duration-500 object-cover"
+        <div className="absolute right-[-200px] top-[45%] h-[400px] w-[400px] rounded-full bg-blue-600/10 blur-[140px]" />
+
+        <div className="absolute bottom-[-200px] left-[30%] h-[400px] w-[400px] rounded-full bg-cyan-600/5 blur-[140px]" />
+      </div>
+
+      <div className="layout relative z-10">
+        {/* Header */}
+        <motion.section
+          className="mb-14 max-w-3xl"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-gray-500">
+            My Work
+          </p>
+
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            Projects that show
+            <span className="block text-gray-500">
+              how I build.
+            </span>
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
+            Explore my professional frontend work, full-stack applications,
+            API integrations, and AI-powered projects.
+          </p>
+        </motion.section>
+
+        {/* Filters */}
+        <motion.div
+          className="mb-12 flex flex-wrap gap-3"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {filters.map((item) => (
+            <Button
+              key={item}
+              label={item}
+              onClick={() => setFilter(item)}
+              className={`rounded-lg border px-5 py-2.5 text-sm font-medium transition duration-300 ${filter === item
+                ? "border-white bg-white text-black"
+                : "border-white/10 bg-white/[0.04] text-gray-300 hover:border-white/20 hover:bg-white/10 hover:text-white"
+                }`}
+            />
+          ))}
+        </motion.div>
+
+        {/* Project count */}
+        <motion.div
+          className="mb-8 text-sm text-gray-500"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          Showing{" "}
+          <span className="font-semibold text-gray-300">
+            {filteredProjects.length}
+          </span>{" "}
+          {filteredProjects.length === 1 ? "project" : "projects"}
+        </motion.div>
+
+        {/* Projects Grid */}
+        <motion.div
+          layout
+          className="grid gap-6 md:grid-cols-2"
+        >
+          {filteredProjects.map((project, index) => (
+            <motion.article
+              layout
+              key={project.id}
+              className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.08,
+              }}
+            >
+              {/* Image */}
+              <div className="relative h-72 overflow-hidden">
+                <motion.img
                   src={project.image}
                   alt={project.title}
+                  className="h-full w-full object-cover"
+                  whileHover={{ scale: 1.06 }}
+                  transition={{ duration: 0.6 }}
                 />
+
+                {/* Image overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+                {/* Category */}
+                <div className="absolute left-5 top-5 rounded-full border border-white/10 bg-black/60 px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-gray-200 backdrop-blur-md">
+                  {project.category}
+                </div>
               </div>
-              <div className="p-4 ">
-                <h3 className="text-xl font-semibold">{project.title}</h3>
-                <p className="text-sm text-gray-700">{project.description}</p>
+
+              {/* Content */}
+              <div className="p-7">
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  {project.title}
+                </h2>
+
+                <p className="mt-4 text-sm leading-7 text-gray-400">
+                  {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {project.technologies.map((technology) => (
+                    <span
+                      key={technology}
+                      className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-gray-400 transition hover:border-white/20 hover:text-gray-200"
+                    >
+                      {technology}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="mt-7 flex flex-wrap gap-3">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-gray-200"
+                    >
+                      Live Project
+                      <FaExternalLinkAlt className="text-xs" />
+                    </a>
+                  )}
+
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
+                    >
+                      <FaGithub />
+                      GitHub
+                    </a>
+                  )}
+                </div>
               </div>
-            </a>
-          </div>
-        ))}
-      </motion.div>
-    </motion.div>
+            </motion.article>
+          ))}
+        </motion.div>
+
+        {/* Empty state */}
+        {filteredProjects.length === 0 && (
+          <motion.div
+            className="rounded-2xl border border-white/10 bg-white/[0.03] p-12 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <p className="text-gray-400">
+              No projects found for this category.
+            </p>
+          </motion.div>
+        )}
+      </div>
+    </motion.main>
+
   );
 };
 

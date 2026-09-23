@@ -1,224 +1,304 @@
 import React, { useState } from "react";
-import Heading from "../components/Heading";
-import Paragraph from "../components/Paragraph";
-import mypic from "../assets/auth.png";
-import Button from "../components/Button";
 import {
-  AiOutlinePhone,
-  AiOutlineWhatsApp,
   AiOutlineMail,
+  AiOutlineWhatsApp,
+  AiOutlinePhone,
 } from "react-icons/ai";
-import DynamicTitle from "../components/DynamicTitle";
+import {
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaGitAlt,
+  FaGithub,
+} from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiRedux,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiFastapi,
+  SiSqlalchemy,
+  SiCloudinary,
+} from "react-icons/si";
 import { motion } from "framer-motion";
 
+import DynamicTitle from "../components/DynamicTitle";
+import mypic from "../assets/mypic.jpeg";
+
+const skills = [
+  { name: "React", icon: <FaReact /> },
+  { name: "Next.js", icon: <SiNextdotjs /> },
+  { name: "JavaScript", icon: "JS" },
+  { name: "TypeScript", icon: <SiTypescript /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+  { name: "Redux Toolkit", icon: <SiRedux /> },
+  { name: "Python", icon: <FaPython /> },
+  { name: "FastAPI", icon: <SiFastapi /> },
+  { name: "Node.js", icon: <FaNodeJs /> },
+  { name: "Express.js", icon: <SiExpress /> },
+  { name: "MongoDB", icon: <SiMongodb /> },
+  { name: "PostgreSQL", icon: <SiPostgresql /> },
+  { name: "SQLAlchemy", icon: <SiSqlalchemy /> },
+  { name: "Git & GitHub", icon: <FaGithub /> },
+  { name: "Cloudinary", icon: <SiCloudinary /> },
+];
+
 const About = () => {
-  const [skills, setSkills] = useState(true);
-  const [education, setEducation] = useState(false);
-  const [contact, setContact] = useState(false);
+  const [activeTab, setActiveTab] = useState("skills");
 
-  const handleSkills = () => {
-    setSkills(true);
-    setEducation(false);
-    setContact(false);
-  };
-
-  const handleEducation = () => {
-    setSkills(false);
-    setEducation(true);
-    setContact(false);
-  };
-
-  const handleContact = () => {
-    setSkills(false);
-    setEducation(false);
-    setContact(true);
-  };
+  const tabs = [
+    { id: "skills", label: "Core Skills" },
+    { id: "journey", label: "Journey" },
+    { id: "education", label: "Education" },
+    { id: "contact", label: "Contact" },
+  ];
 
   return (
-    <motion.div
-      className="px-4 md:px-8 lg:px-16 "
+    <motion.main
+      className="min-h-screen overflow-hidden bg-[#0a0a0a] px-5 py-16 text-white sm:px-8 lg:px-12"
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       <DynamicTitle title="About Me" />
-      <div className="layout md:text-center">
+
+      {/* Background glow */}
+      <div className="pointer-events-none absolute left-[-200px] top-[20%] h-[400px] w-[400px] rounded-full bg-purple-600/10 blur-[140px]" />
+
+      <div className="relative mx-auto max-w-7xl">
+        {/* Header */}
         <motion.div
-          className="pt-[20px] md:pt-[90px]"
-          initial={{ opacity: 0, y: 50 }}
+          className="max-w-3xl"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
         >
-          <Heading
-            className="text-[45px] md:text-[45px] md:font-[900] my-6 my:4"
-            labelText="About Me"
-          />
-          <Paragraph
-            className="mx-1 md:mx-auto w-full md:w-[60%] "
-            labelText="I am Muhammad Noor Nazar, a frontend developer
-            specializing in React.js and also exploring MERN stack. Explore my journey and
-            projects."
-          />
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-gray-500">
+            About Me
+          </p>
+
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            Building with curiosity,
+            <span className="block bg-gradient-to-r from-white via-gray-300 to-gray-600 bg-clip-text text-transparent">
+              growing with every project.
+            </span>
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
+            I'm Muhammad Noor Nazar, a frontend developer focused on building
+            modern, responsive and maintainable web applications. My strongest
+            experience is with React and Next.js, while I'm expanding into
+            Python, FastAPI, databases and AI-powered products.
+          </p>
         </motion.div>
 
-        {/* Main Layout: Flex for larger screens and block for smaller ones */}
-        <div className="flex flex-col gap-4 md:flex-row justify-between py-[40px] mt-1 md:mt-[60px]">
-          {/* Left Section */}
-          <div className="left w-full md:w-[60%] mx-auto mb-6 pt-[20px] text-left">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Heading
-                className="text-[40px] md:text-[50px]"
-                labelText="Noor Nazar's"
-              />
-              <Heading
-                className="text-[40px] md:text-[50px] mt-6"
-                labelText="Development Journey"
-              />
-
-              <Paragraph
-                className="mt-8"
-                labelText="Hi, I'm Muhammad Noor, a passionate frontend developer with
-              expertise in React.js and the MERN stack. I specialize in creating
-              dynamic, responsive web applications with a focus on clean design
-              and seamless performance. Currently, I'm diving deeper into
-              full-stack development to expand my skills in backend technologies.
-              Let's connect and collaborate on something amazing!"
-              />
-            </motion.div>
-            <motion.div
-              className="flex flex-wrap mt-6"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Button
-                className="my-2 md:my-4 ml-0 mr-4 bg-white py-3 px-4 rounded-md shadow-md hover:text-gray-700 hover:bg-[rgba(247,247,247,0.54)]"
-                label="Skills"
-                onClick={handleSkills}
-              />
-              <Button
-                className="my-2 md:my-4 ml-0 mr-4 bg-white py-3 px-4 rounded-md shadow-md hover:text-gray-700 hover:bg-[rgba(247,247,247,0.54)]"
-                label="Education"
-                onClick={handleEducation}
-              />
-              <Button
-                className="my-2 md:my-4 ml-0 mr-4 bg-white py-3 px-4 rounded-md shadow-md hover:text-gray-700 hover:bg-[rgba(247,247,247,0.54)]"
-                label="Contact Me"
-                onClick={handleContact}
-              />
-            </motion.div>
-
-            {/* Skills, Education, Contact Section */}
-            <motion.div
-              className="mt-4"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              {skills && (
-                <div className="p-4 bg-white rounded-lg shadow-md max-w-lg">
-                  <h2 className="text-xl md:text-2xl font-bold  mb-4">
-                    Web Development Skills
-                  </h2>
-                  <ul className="grid grid-cols-2 gap-4 text-gray-700 font-semibold mr-2">
-                    <li>HTML & CSS</li>
-                    <li>JavaScript</li>
-                    <li>React.js</li>
-                    <li> Git & GitHub</li>
-                    <li>Tailwind CSS</li>
-                    <li> API Integration</li>
-                    <li> Responsive Design</li>
-                    <li>Strapi</li>
-                  </ul>
-                </div>
-              )}
-
-              {education && (
-                <div className="p-4 bg-white rounded-lg shadow-md max-w-lg mt-6">
-                  <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
-                    Education
-                  </h2>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <span className="text-gray-800 font-semibold mr-2">
-                        University:
-                      </span>
-                      BSCS from Federal Urdu University, Karachi
-                    </li>
-                    <li className="flex items-center">
-                      <span className="text-gray-800 font-semibold mr-2">
-                        College:
-                      </span>
-                      Govt. College For Men, Nazimabad
-                    </li>
-                  </ul>
-                </div>
-              )}
-
-              {contact && (
-                <div className="p-4 bg-white rounded-lg shadow-md max-w-lg mt-6">
-                  <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
-                    Get in Touch
-                  </h2>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <AiOutlinePhone className=" mr-2 scale-125 duration-300 hover:scale-150" />
-
-                      <a
-                        href="tel:03178813001"
-                        className=" hover:text-blue-800"
-                      >
-                        0317 8813001
-                      </a>
-                    </li>
-                    <li className="flex items-center">
-                      <AiOutlineWhatsApp className=" mr-2 scale-125 duration-300 hover:scale-150" />
-
-                      <a
-                        href="https://wa.me/923178813001"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-800 hover:text-blue-500"
-                      >
-                        +92 317 8813001
-                      </a>
-                    </li>
-                    <li className="flex items-center">
-                      <AiOutlineMail className=" mr-2 scale-125 duration-300 hover:scale-150" />
-
-                      <a
-                        href="mailto:noorenazar.prog@gmail.com"
-                        className="text-gray-800 hover:text-blue-500"
-                      >
-                        noorenazar.prog@gmail.com
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </motion.div>
-          </div>
-
-          {/* Right Section (Image) */}
+        {/* Main section */}
+        <div className="mt-16 grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          {/* Image */}
           <motion.div
-            className="right w-full md:w-[40%] mx-auto mt-8 md:mt-0 overflow-hidden h-auto md:h-[600px] md:translate-y-[1rem] rounded-[20px] hover:shadow-multi-color duration-200"
-            initial={{ opacity: 0, y: -50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            className="relative mx-auto w-full max-w-md"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
           >
-            <img
-              className="object-cover shadow-lg w-full h-full hover:scale-110 duration-500"
-              src={mypic}
-              alt="My Picture"
-            />
+            <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-purple-500/20 to-blue-500/10 blur-2xl" />
+
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
+              <img
+                src={mypic}
+                alt="Muhammad Noor Nazar"
+                className="h-[480px] w-full object-cover transition duration-700 hover:scale-105"
+              />
+
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6">
+                <p className="text-sm uppercase tracking-[0.25em] text-gray-400">
+                  Frontend Developer
+                </p>
+
+                <h2 className="mt-2 text-2xl font-semibold">
+                  Muhammad Noor Nazar
+                </h2>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            {/* Tabs */}
+            <div className="flex flex-wrap gap-3 border-b border-white/10 pb-5">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`rounded-full border px-4 py-2 text-sm transition duration-300 ${activeTab === tab.id
+                    ? "border-white bg-white text-black"
+                    : "border-white/10 bg-white/[0.03] text-gray-400 hover:border-white/20 hover:text-white"
+                    }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Core Skills */}
+            {activeTab === "skills" && (
+              <motion.section
+                className="pt-8"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <p className="mb-7 text-sm leading-7 text-gray-500">
+                  Technologies and tools I currently work with across frontend,
+                  backend and AI-oriented projects.
+                </p>
+
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                  {skills.map((skill) => (
+                    <div
+                      key={skill.name}
+                      className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]"
+                    >
+                      <span className="flex h-8 w-8 items-center justify-center text-lg text-gray-300">
+                        {skill.icon}
+                      </span>
+
+                      <span className="text-sm font-medium text-gray-300 group-hover:text-white">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.section>
+            )}
+
+            {/* Journey */}
+            {activeTab === "journey" && (
+              <motion.section
+                className="pt-8"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <h2 className="text-2xl font-semibold">
+                  From frontend development to AI products
+                </h2>
+
+                <div className="mt-6 space-y-6 text-gray-400">
+                  <div className="border-l border-white/10 pl-5">
+                    <p className="text-sm text-gray-500">Frontend</p>
+                    <p className="mt-2 leading-7">
+                      Building responsive interfaces and production-style web
+                      applications with React, Next.js, JavaScript, Tailwind
+                      CSS and REST APIs.
+                    </p>
+                  </div>
+
+                  <div className="border-l border-white/10 pl-5">
+                    <p className="text-sm text-gray-500">Full Stack</p>
+                    <p className="mt-2 leading-7">
+                      Expanding into Python, FastAPI, PostgreSQL, SQLAlchemy,
+                      authentication, APIs, migrations and backend architecture.
+                    </p>
+                  </div>
+
+                  <div className="border-l border-white/10 pl-5">
+                    <p className="text-sm text-gray-500">AI Product Development</p>
+                    <p className="mt-2 leading-7">
+                      Exploring practical AI integration and building products
+                      where modern web applications connect with AI capabilities.
+                    </p>
+                  </div>
+                </div>
+              </motion.section>
+            )}
+
+            {/* Education */}
+            {activeTab === "education" && (
+              <motion.section
+                className="pt-8"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                  <p className="text-sm uppercase tracking-[0.2em] text-gray-500">
+                    Education
+                  </p>
+
+                  <h2 className="mt-3 text-2xl font-semibold">
+                    Bachelor of Science in Computer Science
+                  </h2>
+
+                  <p className="mt-3 text-gray-400">
+                    Federal Urdu University of Arts, Science & Technology
+                  </p>
+
+                  <p className="mt-2 text-sm text-gray-500">
+                    Karachi, Pakistan
+                  </p>
+                </div>
+              </motion.section>
+            )}
+
+            {/* Contact */}
+            {activeTab === "contact" && (
+              <motion.section
+                className="pt-8"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <h2 className="text-2xl font-semibold">
+                  Let's build something useful.
+                </h2>
+
+                <p className="mt-4 max-w-xl leading-7 text-gray-400">
+                  I'm open to frontend opportunities, full-stack/backend
+                  opportunities and projects involving modern web technologies
+                  and AI.
+                </p>
+
+                <div className="mt-7 space-y-4">
+                  <a
+                    href="mailto:noorenazar.prog@gmail.com"
+                    className="flex items-center gap-4 text-gray-400 transition hover:text-white"
+                  >
+                    <AiOutlineMail className="text-xl" />
+                    noorenazar.prog@gmail.com
+                  </a>
+
+                  <a
+                    href="tel:+923178813001"
+                    className="flex items-center gap-4 text-gray-400 transition hover:text-white"
+                  >
+                    <AiOutlinePhone className="text-xl" />
+                    +92 317 8813001
+                  </a>
+
+                  <a
+                    href="https://wa.me/923178813001"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 text-gray-400 transition hover:text-white"
+                  >
+                    <AiOutlineWhatsApp className="text-xl" />
+                    WhatsApp
+                  </a>
+                </div>
+              </motion.section>
+            )}
           </motion.div>
         </div>
       </div>
-    </motion.div>
+    </motion.main>
   );
 };
 

@@ -1,79 +1,169 @@
 import React from "react";
-import Paragraph from "./Paragraph";
-import Heading from "./Heading";
-import RenieImg from "../assets/renies.jpg";
-import Button from "./Button";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const Freelance = () => {
-  return (
-    <motion.div
-      className="bg-gray-50"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-    >
-      <div className="layout ">
-        <div className="pt-[50px] flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8 p-6">
-          <motion.div
-            className="w-full md:w-1/2 rounded-md overflow-hidden shadow duration-300 hover:shadow-multi-color"
-            initial={{ opacity: 0, scale: 0.5, x: -60 }}
-            whileInView={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <a href="https://www.renie.io/" target="_blank">
-              <img
-                src={RenieImg}
-                alt="Descriptive Alt Text"
-                className="w-[100%] object-cover  duration-300 scale-110 hover:scale-125"
-              />
-            </a>
-          </motion.div>
+import RenieImg from "../assets/renies.jpg";
+import Heading from "./Heading";
+import Paragraph from "./Paragraph";
 
-          <motion.div
-            className="w-full md:w-1/2"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+const Freelance = () => {
+  return (<section className="relative overflow-hidden bg-[#0a0a0a] py-24 text-white">
+    {/* Background glow */} <div className="pointer-events-none absolute inset-0 overflow-hidden"> <div className="absolute left-[-180px] top-[20%] h-[350px] w-[350px] rounded-full bg-purple-600/10 blur-[130px]" />
+
+      <div className="absolute right-[-180px] bottom-[10%] h-[350px] w-[350px] rounded-full bg-blue-600/10 blur-[130px]" />
+    </div>
+
+    <div className="layout relative z-10">
+      {/* Section heading */}
+      <motion.div
+        className="mb-14 max-w-3xl"
+        initial={{ opacity: 0, y: 35 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-gray-500">
+          Professional Work
+        </p>
+
+        <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+          Building interfaces
+          <span className="block text-gray-500">
+            for real projects.
+          </span>
+        </h2>
+
+        <p className="mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
+          Experience working on professional frontend projects, turning
+          designs into responsive interfaces and improving existing
+          applications.
+        </p>
+      </motion.div>
+
+      {/* Renie */}
+      <motion.article
+        className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+      >
+        <div className="grid lg:grid-cols-2">
+          {/* Image */}
+          <motion.a
+            href="https://www.renie.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative block min-h-[320px] overflow-hidden lg:min-h-[480px]"
           >
-            <Heading
-              className="text-[45px] mb-4 leading-[45px]"
-              labelText="  Freelance Work at Renie.io"
+            <motion.img
+              src={RenieImg}
+              alt="Renie project"
+              className="h-full w-full object-cover"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.7 }}
             />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+            <div className="absolute left-6 top-6 rounded-full border border-white/10 bg-black/60 px-4 py-2 text-xs font-medium uppercase tracking-widest text-white backdrop-blur-md">
+              Professional Project
+            </div>
+          </motion.a>
+
+          {/* Content */}
+          <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-14">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
+              Frontend Development
+            </p>
+
+            <h3 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+              Renie
+            </h3>
 
             <Paragraph
-              className="text-base text-[18px] text-gray-900 mb-4"
-              labelText="At Renie.io, I specialized in converting intricate Figma designs into
-          fully functional React components. This involved meticulous attention
-          to detail and a deep understanding of both design and development
-          principles."
+              className="mt-6 text-base leading-8 text-gray-400"
+              labelText="Worked on the Renie frontend by translating detailed Figma designs into responsive React interfaces, focusing on visual accuracy, reusable components, and a polished user experience."
             />
+
+            {/* Work highlights */}
             <motion.ul
-              className="list-disc pl-5 space-y-2 text-gray-900"
-              initial={{ opacity: 0, x: -30 }}
+              className="mt-7 space-y-3 text-sm text-gray-400"
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <li>Converted Figma designs to React components</li>
-              <li>Ensured pixel-perfect implementation</li>
-              <li>Collaborated with designers for seamless integration</li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white" />
+                Converted Figma designs into reusable React components
+              </li>
+
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white" />
+                Built responsive interfaces across different screen sizes
+              </li>
+
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white" />
+                Focused on UI accuracy, usability, and frontend performance
+              </li>
+
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white" />
+                Worked with REST API integrations and frontend application logic
+              </li>
             </motion.ul>
-            <motion.a
-              href="https://github.com/NoorNazar123/collaborateProject"
-              target="_blank"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-            >
-              <Button
-                className="py-2 px-4 shadow-md rounded-md mt-4 border hover:shadow-lg hover:bg-[#f0f0fw] hover:box-border hover:text-gray-700"
-                label="View Code"
-              />
-            </motion.a>
-          </motion.div>
+
+            {/* Technologies */}
+            <div className="mt-8 flex flex-wrap gap-2">
+              {[
+                "React",
+                "Tailwind CSS",
+                "Figma",
+                "REST API",
+                "Responsive UI",
+              ].map((technology) => (
+                <span
+                  key={technology}
+                  className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-gray-400"
+                >
+                  {technology}
+                </span>
+              ))}
+            </div>
+
+            {/* Actions */}
+            <div className="mt-9 flex flex-wrap gap-3">
+              <motion.a
+                href="https://www.renie.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-gray-200"
+              >
+                Visit Renie
+                <FaExternalLinkAlt className="text-xs" />
+              </motion.a>
+
+              <motion.a
+                href="https://github.com/NoorNazar123/collaborateProject"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                <FaGithub />
+                View Code
+              </motion.a>
+            </div>
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.article>
+    </div>
+  </section>
   );
 };
 
