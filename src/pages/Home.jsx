@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 
 import Button from "../components/Button";
 import DynamicTitle from "../components/DynamicTitle";
+import IntroVideo from "../components/IntroVideo";
+import Experience from "../components/Experience";
 
 // Lazy-loaded sections
 const OfferSection = lazy(() => import("../components/OfferSection"));
@@ -280,6 +282,10 @@ const Home = () => {
           </div>
         }
       >
+        {/* <IntroVideo /> */}
+
+        <Experience />
+
         <OfferSection />
 
         <ProjectCards />
