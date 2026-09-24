@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet";
 
 const siteUrl = "https://noor-e-nazars-portfolio-vfb4.vercel.app";
 
+const profileImage = `${siteUrl}/profile.png`;
+
 const pageData = {
   Home: {
     title: "M Noor e Nazar | Frontend & Full-Stack Developer",
@@ -35,11 +37,13 @@ const personSchema = {
   name: "M Noor e Nazar",
   url: siteUrl,
   jobTitle: "Frontend & Full-Stack Developer",
-  image: `${siteUrl}/src/assets/mypic.jpeg`,
+  image: profileImage,
+
   sameAs: [
     "https://www.linkedin.com/in/noor-nazar-dev/",
     "https://github.com/NoorNazar123",
   ],
+
   knowsAbout: [
     "React",
     "Next.js",
@@ -62,83 +66,105 @@ const DynamicTitle = ({ title }) => {
       ? siteUrl
       : `${siteUrl}/${title.toLowerCase()}`;
 
-  return (<Helmet> <meta charSet="utf-8" />
+  return (
+    <Helmet>
+      <meta charSet="utf-8" />
 
-    <title>{currentPage.title}</title>
+      {/* Basic SEO */}
+      <title>{currentPage.title}</title>
 
-    <meta
-      name="description"
-      content={currentPage.description}
-    />
+      <meta
+        name="description"
+        content={currentPage.description}
+      />
 
-    <meta
-      name="author"
-      content="M Noor e Nazar"
-    />
+      <meta
+        name="author"
+        content="M Noor e Nazar"
+      />
 
-    <meta
-      name="robots"
-      content="index, follow"
-    />
+      <meta
+        name="robots"
+        content="index, follow"
+      />
 
-    <link
-      rel="canonical"
-      href={canonicalUrl}
-    />
+      <link
+        rel="canonical"
+        href={canonicalUrl}
+      />
 
-    {/* Open Graph */}
-    <meta
-      property="og:type"
-      content="website"
-    />
+      {/* Open Graph */}
+      <meta
+        property="og:type"
+        content="website"
+      />
 
-    <meta
-      property="og:title"
-      content={currentPage.title}
-    />
+      <meta
+        property="og:title"
+        content={currentPage.title}
+      />
 
-    <meta
-      property="og:description"
-      content={currentPage.description}
-    />
+      <meta
+        property="og:description"
+        content={currentPage.description}
+      />
 
-    <meta
-      property="og:url"
-      content={canonicalUrl}
-    />
+      <meta
+        property="og:url"
+        content={canonicalUrl}
+      />
 
-    <meta
-      property="og:site_name"
-      content="Noor's Dev Excellence"
-    />
+      <meta
+        property="og:site_name"
+        content="Noor's Dev Excellence"
+      />
 
-    <meta
-      property="og:locale"
-      content="en_US"
-    />
+      <meta
+        property="og:locale"
+        content="en_US"
+      />
 
-    {/* Twitter / X */}
-    <meta
-      name="twitter:card"
-      content="summary_large_image"
-    />
+      <meta
+        property="og:image"
+        content={profileImage}
+      />
 
-    <meta
-      name="twitter:title"
-      content={currentPage.title}
-    />
+      <meta
+        property="og:image:alt"
+        content="M Noor e Nazar - Frontend & Full-Stack Developer"
+      />
 
-    <meta
-      name="twitter:description"
-      content={currentPage.description}
-    />
+      {/* Twitter / X */}
+      <meta
+        name="twitter:card"
+        content="summary_large_image"
+      />
 
-    {/* Person Structured Data */}
-    <script type="application/ld+json">
-      {JSON.stringify(personSchema)}
-    </script>
-  </Helmet>
+      <meta
+        name="twitter:title"
+        content={currentPage.title}
+      />
 
+      <meta
+        name="twitter:description"
+        content={currentPage.description}
+      />
+
+      <meta
+        name="twitter:image"
+        content={profileImage}
+      />
+
+      <meta
+        name="twitter:image:alt"
+        content="M Noor e Nazar - Frontend & Full-Stack Developer"
+      />
+
+      {/* Person Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify(personSchema)}
+      </script>
+    </Helmet>
   );
 };
 
