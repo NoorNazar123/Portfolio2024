@@ -51,7 +51,7 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Frontend Developer · React & Next.js
+                Full-Stack Developer · Frontend-Focused
               </motion.p>
 
               {/* Name */}
