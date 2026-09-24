@@ -85,16 +85,6 @@ const projects = [
     liveUrl: "https://zingy-brigadeiros-cf2f51.netlify.app/",
     technologies: ["React", "JavaScript", "RapidAPI"],
   },
-  {
-    id: 6,
-    title: "Portfolio",
-    category: "Frontend Development",
-    description:
-      "A personal portfolio website designed to present frontend work, projects, technical capabilities, and professional experience.",
-    image: portfolio,
-    liveUrl: "https://comforting-concha-965fde.netlify.app/",
-    technologies: ["HTML", "CSS", "JavaScript"],
-  },
 ];
 
 const ProjectCards = () => {
