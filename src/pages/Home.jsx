@@ -9,6 +9,8 @@ import DynamicTitle from "../components/DynamicTitle";
 const OfferSection = lazy(() => import("../components/OfferSection"));
 const Freelance = lazy(() => import("../components/Freelance"));
 const ProjectCards = lazy(() => import("../components/ProjectCards"));
+const Testimonials = lazy(() => import("../components/Testimonials"));
+const FindMeOnline = lazy(() => import("../components/FindMeOnline"));
 
 const Home = () => {
   return (
@@ -283,6 +285,10 @@ const Home = () => {
         <ProjectCards />
 
         <Freelance />
+
+        <Testimonials />
+
+        <FindMeOnline />
 
       </Suspense>
     </motion.main>
