@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 const siteUrl = "https://noor-e-nazars-portfolio-vfb4.vercel.app";
 
-const profileImage = `${siteUrl}/profile.png`;
+const profileImage = `${siteUrl}/profile.jpg`;
 
 const pageData = {
   Home: {
