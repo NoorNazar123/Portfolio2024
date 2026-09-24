@@ -3,6 +3,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaGithub,
+  FaTiktok,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -30,12 +31,17 @@ const Footer = () => {
     {
       label: "Instagram",
       icon: <FaInstagram />,
-      href: "https://www.instagram.com/uszai_093/",
+      href: "https://www.instagram.com/noorenazar.dev/?utm_source=qr&r=nametag",
+    },
+    {
+      label: "Tiktok",
+      icon: <FaTiktok />,
+      href: "https://www.tiktok.com/@noorenazar.dev?lang=en",
     },
     {
       label: "Facebook",
       icon: <FaFacebookF />,
-      href: "https://www.facebook.com/profile.php?id=61553746727080",
+      href: "https://www.facebook.com/profile.php?id=61592584260876",
     },
   ];
 

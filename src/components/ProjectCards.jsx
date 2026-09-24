@@ -15,8 +15,9 @@ const projects = [
     id: 1,
     title: "Team Hub",
     category: "Full Stack + AI",
+    featured: true,
     description:
-      "A full-stack team management application built with React, FastAPI, PostgreSQL, JWT authentication, Cloudinary, and Gemini AI.",
+      "A full-stack team management application with authentication, role-based access, user management, image uploads, PostgreSQL, and an AI-powered bio improvement feature.",
     image: teamHub,
     liveUrl: "https://engineering-notes-ten.vercel.app/",
     githubUrl:
@@ -30,32 +31,45 @@ const projects = [
       "Gemini AI",
     ],
   },
+
   {
     id: 2,
     title: "Renie",
-    category: "Professional Work",
+    category: "Professional Client Work",
     description:
-      "A professional frontend project focused on translating Figma designs into responsive React interfaces with attention to detail and performance.",
+      "A client project acquired through LinkedIn, where I built the Renie frontend from scratch from Figma designs, developed responsive React interfaces, implemented reusable UI components, and integrated REST APIs.",
     image: renie,
     liveUrl: "https://www.renie.io/",
-    technologies: ["React", "Tailwind CSS", "Figma", "REST API"],
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "Figma",
+      "REST API",
+      "Responsive UI",
+    ],
   },
+
   {
     id: 3,
-    title: "Lobstr",
-    category: "Professional Work",
+    title: "lobstr.io",
+    category: "Professional Work · JTechsight",
     description:
-      "A professional web project focused on building and maintaining a modern responsive frontend experience with attention to usability, clean UI, and performance.",
+      "Maintained and improved the lobstr.io website as part of my work at JTechsight, handling frontend updates, UI improvements, bug fixes, feature changes, and ongoing website maintenance.",
     image: graphicWeb,
     liveUrl: "https://www.lobstr.io/",
-    technologies: ["React", "Frontend", "Responsive UI"],
+    technologies: [
+      "Frontend Development",
+      "Responsive UI",
+      "Website Maintenance",
+      "UI Improvements",
+    ],
   },
   {
     id: 4,
     title: "Next.js Web App",
-    category: "Frontend",
+    category: "Frontend Development",
     description:
-      "A modern frontend experiment built with Next.js and Aceternity UI, focused on component-based development and modern interface design.",
+      "A modern Next.js interface experiment focused on reusable components, responsive layouts, and contemporary frontend design patterns.",
     image: NextWeb,
     liveUrl:
       "https://nextjs-with-aceternity-ui-git-main-noor-nazars-projects.vercel.app/",
@@ -64,9 +78,9 @@ const projects = [
   {
     id: 5,
     title: "YouTube Clone",
-    category: "Frontend",
+    category: "Frontend Development",
     description:
-      "A React-based YouTube clone using API integration to practice dynamic data fetching, reusable components, and frontend application architecture.",
+      "A React application using API integration to practice dynamic data fetching, reusable components, and frontend application architecture.",
     image: youtube,
     liveUrl: "https://zingy-brigadeiros-cf2f51.netlify.app/",
     technologies: ["React", "JavaScript", "RapidAPI"],
@@ -74,9 +88,9 @@ const projects = [
   {
     id: 6,
     title: "Portfolio",
-    category: "Frontend",
+    category: "Frontend Development",
     description:
-      "A personal portfolio website built to showcase my frontend development work, projects, skills, and professional journey.",
+      "A personal portfolio website designed to present frontend work, projects, technical capabilities, and professional experience.",
     image: portfolio,
     liveUrl: "https://comforting-concha-965fde.netlify.app/",
     technologies: ["HTML", "CSS", "JavaScript"],
@@ -93,7 +107,7 @@ const ProjectCards = () => {
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute left-[-200px] top-[20%] h-[400px] w-[400px] rounded-full bg-purple-600/10 blur-[140px]" />
 
-        <div className="absolute right-[-200px] bottom-[10%] h-[400px] w-[400px] rounded-full bg-blue-600/10 blur-[140px]" />
+        <div className="absolute bottom-[10%] right-[-200px] h-[400px] w-[400px] rounded-full bg-blue-600/10 blur-[140px]" />
       </div>
 
       <div className="layout relative z-10">
@@ -110,15 +124,16 @@ const ProjectCards = () => {
           </p>
 
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            Projects that show
+            Built to solve
             <span className="block text-gray-500">
-              how I build.
+              real problems.
             </span>
           </h2>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
-            A selection of projects covering professional frontend work,
-            full-stack applications, API integration, and AI-powered features.
+            A selection of professional and personal projects showing how I
+            approach frontend development, full-stack applications, API
+            integration, and AI-powered product features.
           </p>
         </motion.div>
 
@@ -187,7 +202,7 @@ const ProjectCards = () => {
                       whileTap={{ scale: 0.97 }}
                       className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-gray-200"
                     >
-                      Live Project
+                      View Live Project
                       <FaExternalLinkAlt className="text-xs" />
                     </motion.a>
                   )}
@@ -202,7 +217,7 @@ const ProjectCards = () => {
                       className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                     >
                       <FaGithub />
-                      GitHub
+                      View Code
                     </motion.a>
                   )}
                 </div>

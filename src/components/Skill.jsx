@@ -6,6 +6,7 @@ import {
   FaCss3Alt,
   FaJs,
   FaPython,
+  FaNodeJs,
   FaArrowRight,
   FaArrowLeft,
 } from "react-icons/fa";
@@ -16,6 +17,9 @@ import {
   SiExpress,
   SiFastapi,
   SiTypescript,
+  SiPostgresql,
+  SiMongodb,
+  SiDocker,
 } from "react-icons/si";
 
 import "slick-carousel/slick/slick.css";
@@ -34,13 +38,13 @@ const technologies = [
   },
   {
     id: 3,
-    name: "JavaScript",
-    icon: <FaJs />,
+    name: "TypeScript",
+    icon: <SiTypescript />,
   },
   {
     id: 4,
-    name: "TypeScript",
-    icon: <SiTypescript />,
+    name: "JavaScript",
+    icon: <FaJs />,
   },
   {
     id: 5,
@@ -54,28 +58,48 @@ const technologies = [
   },
   {
     id: 7,
-    name: "Tailwind CSS",
-    icon: <SiTailwindcss />,
+    name: "PostgreSQL",
+    icon: <SiPostgresql />,
   },
   {
     id: 8,
-    name: "HTML",
-    icon: <FaHtml5 />,
+    name: "Node.js",
+    icon: <FaNodeJs />,
   },
   {
     id: 9,
-    name: "CSS",
-    icon: <FaCss3Alt />,
-  },
-  {
-    id: 10,
     name: "Express.js",
     icon: <SiExpress />,
   },
   {
+    id: 10,
+    name: "MongoDB",
+    icon: <SiMongodb />,
+  },
+  {
     id: 11,
+    name: "Tailwind CSS",
+    icon: <SiTailwindcss />,
+  },
+  {
+    id: 12,
+    name: "Docker",
+    icon: <SiDocker />,
+  },
+  {
+    id: 13,
     name: "Strapi",
     icon: <SiStrapi />,
+  },
+  {
+    id: 14,
+    name: "HTML",
+    icon: <FaHtml5 />,
+  },
+  {
+    id: 15,
+    name: "CSS",
+    icon: <FaCss3Alt />,
   },
 ];
 

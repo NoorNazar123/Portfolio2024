@@ -8,7 +8,6 @@ import {
   FaReact,
   FaNodeJs,
   FaPython,
-  FaGitAlt,
   FaGithub,
 } from "react-icons/fa";
 import {
@@ -82,17 +81,18 @@ const About = () => {
           </p>
 
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            Building with curiosity,
+            Building with experience,
             <span className="block bg-gradient-to-r from-white via-gray-300 to-gray-600 bg-clip-text text-transparent">
-              growing with every project.
+              growing toward full-stack AI.
             </span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
-            I'm Muhammad Noor Nazar, a frontend developer focused on building
-            modern, responsive and maintainable web applications. My strongest
-            experience is with React and Next.js, while I'm expanding into
-            Python, FastAPI, databases and AI-powered products.
+            I'm Muhammad Noor Nazar, a frontend developer with 1 year of
+            professional experience at JTechsight. I build responsive,
+            maintainable web applications with React and Next.js, work with
+            REST APIs and real client projects, and I'm expanding into
+            Python, FastAPI, databases, and AI-powered products.
           </p>
         </motion.div>
 
@@ -123,6 +123,10 @@ const About = () => {
                 <h2 className="mt-2 text-2xl font-semibold">
                   Muhammad Noor Nazar
                 </h2>
+
+                <p className="mt-2 text-sm text-gray-500">
+                  1 Year Professional Experience
+                </p>
               </div>
             </div>
           </motion.div>
@@ -142,8 +146,8 @@ const About = () => {
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
                   className={`rounded-full border px-4 py-2 text-sm transition duration-300 ${activeTab === tab.id
-                    ? "border-white bg-white text-black"
-                    : "border-white/10 bg-white/[0.03] text-gray-400 hover:border-white/20 hover:text-white"
+                      ? "border-white bg-white text-black"
+                      : "border-white/10 bg-white/[0.03] text-gray-400 hover:border-white/20 hover:text-white"
                     }`}
                 >
                   {tab.label}
@@ -159,8 +163,9 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
               >
                 <p className="mb-7 text-sm leading-7 text-gray-500">
-                  Technologies and tools I currently work with across frontend,
-                  backend and AI-oriented projects.
+                  Technologies and tools I work with across professional
+                  frontend development, full-stack applications, APIs,
+                  databases, and AI-powered projects.
                 </p>
 
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -190,32 +195,76 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
               >
                 <h2 className="text-2xl font-semibold">
-                  From frontend development to AI products
+                  Building from frontend to full-stack AI products
                 </h2>
 
                 <div className="mt-6 space-y-6 text-gray-400">
+                  {/* Professional Experience */}
                   <div className="border-l border-white/10 pl-5">
-                    <p className="text-sm text-gray-500">Frontend</p>
+                    <p className="text-sm text-gray-500">
+                      2025 – Present · JTechsight
+                    </p>
+
+                    <h3 className="mt-2 text-lg font-semibold text-white">
+                      Frontend Developer
+                    </h3>
+
                     <p className="mt-2 leading-7">
-                      Building responsive interfaces and production-style web
-                      applications with React, Next.js, JavaScript, Tailwind
-                      CSS and REST APIs.
+                      1 year of professional frontend experience building and
+                      maintaining responsive React and Next.js applications,
+                      translating Figma designs into production interfaces,
+                      integrating REST APIs, fixing UI issues, and improving
+                      frontend experiences.
                     </p>
                   </div>
 
+                  {/* Client Work */}
                   <div className="border-l border-white/10 pl-5">
-                    <p className="text-sm text-gray-500">Full Stack</p>
+                    <p className="text-sm text-gray-500">Client Projects</p>
+
+                    <h3 className="mt-2 text-lg font-semibold text-white">
+                      Building real products
+                    </h3>
+
                     <p className="mt-2 leading-7">
-                      Expanding into Python, FastAPI, PostgreSQL, SQLAlchemy,
-                      authentication, APIs, migrations and backend architecture.
+                      Built client-facing interfaces from scratch, including
+                      the Renie project where I translated Figma designs into
+                      responsive React UI and integrated REST APIs.
                     </p>
                   </div>
 
+                  {/* Full Stack */}
                   <div className="border-l border-white/10 pl-5">
-                    <p className="text-sm text-gray-500">AI Product Development</p>
+                    <p className="text-sm text-gray-500">
+                      Full-Stack Development
+                    </p>
+
+                    <h3 className="mt-2 text-lg font-semibold text-white">
+                      Expanding beyond the frontend
+                    </h3>
+
                     <p className="mt-2 leading-7">
-                      Exploring practical AI integration and building products
-                      where modern web applications connect with AI capabilities.
+                      Building full-stack applications with Python, FastAPI,
+                      PostgreSQL, SQLAlchemy, JWT authentication, Cloudinary,
+                      database migrations, and REST APIs.
+                    </p>
+                  </div>
+
+                  {/* AI */}
+                  <div className="border-l border-white/10 pl-5">
+                    <p className="text-sm text-gray-500">
+                      AI Product Development
+                    </p>
+
+                    <h3 className="mt-2 text-lg font-semibold text-white">
+                      Connecting web applications with AI
+                    </h3>
+
+                    <p className="mt-2 leading-7">
+                      Building practical AI-powered features and exploring how
+                      AI can be integrated into real web products, with a
+                      focus on useful product experiences rather than AI as a
+                      standalone technology.
                     </p>
                   </div>
                 </div>
@@ -262,8 +311,8 @@ const About = () => {
 
                 <p className="mt-4 max-w-xl leading-7 text-gray-400">
                   I'm open to frontend opportunities, full-stack/backend
-                  opportunities and projects involving modern web technologies
-                  and AI.
+                  opportunities, and client projects involving modern web
+                  technologies and AI.
                 </p>
 
                 <div className="mt-7 space-y-4">

@@ -19,67 +19,82 @@ const Home = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <DynamicTitle title="Home" />
+      <DynamicTitle title="Muhammad Noor Nazar | Frontend Developer" />
 
-      {/* Hero */}
+      {/* ==================== HERO ==================== */}
       <section className="relative min-h-[calc(100vh-80px)] overflow-hidden">
         {/* Background glow */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-[-150px] top-[10%] h-[400px] w-[400px] rounded-full bg-purple-600/20 blur-[120px]" />
-          <div className="absolute right-[-150px] bottom-[5%] h-[400px] w-[400px] rounded-full bg-blue-600/20 blur-[120px]" />
+
+          <div className="absolute bottom-[5%] right-[-150px] h-[400px] w-[400px] rounded-full bg-blue-600/20 blur-[120px]" />
         </div>
 
         {/* Grid background */}
-        <div className="absolute inset-0 opacity-[0.08] pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:50px_50px]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:50px_50px] opacity-[0.08]" />
 
         <div className="relative z-10 mx-auto flex min-h-[calc(100vh-80px)] max-w-7xl items-center px-6 py-20 lg:px-8">
           <div className="grid w-full items-center gap-16 lg:grid-cols-2">
-
-            {/* Left content */}
+            {/* ==================== LEFT CONTENT ==================== */}
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
+              {/* Professional role */}
               <motion.p
                 className="mb-5 text-sm font-medium uppercase tracking-[0.3em] text-gray-400"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Frontend Developer
+                Frontend Developer · React & Next.js
               </motion.p>
 
+              {/* Name */}
               <motion.h1
                 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.7 }}
               >
-                Muhammad Noor
-                <span className="block bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
-                  Nazar
-                </span>
+                M Noor Nazar
+
               </motion.h1>
 
+              {/* Main headline */}
               <motion.h2
-                className="mt-6 text-2xl font-semibold text-gray-300 sm:text-3xl"
+                className="mt-6 max-w-2xl text-2xl font-semibold leading-tight text-gray-300 sm:text-3xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                Building modern web experiences
+                I build modern websites and web applications that are made to
+                work.
               </motion.h2>
 
+              {/* Description */}
               <motion.p
                 className="mt-6 max-w-xl text-base leading-8 text-gray-400 sm:text-lg"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                I build responsive, scalable interfaces with React and
-                Next.js, while expanding into Python, FastAPI, and AI-powered
-                products.
+                Frontend developer with 1 year of professional experience at
+                JTechsight, specializing in React and Next.js. I build
+                responsive interfaces, integrate APIs, and turn product ideas
+                and designs into polished web experiences.
+              </motion.p>
+
+              {/* Secondary capability */}
+              <motion.p
+                className="mt-4 max-w-xl text-sm leading-7 text-gray-500 sm:text-base"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.65 }}
+              >
+                I also build full-stack applications with Python, FastAPI,
+                PostgreSQL, and AI integrations.
               </motion.p>
 
               {/* Tech stack */}
@@ -89,16 +104,24 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
               >
-                {["React", "Next.js", "JavaScript", "Python", "FastAPI"].map(
-                  (tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300 backdrop-blur-sm"
-                    >
-                      {tech}
-                    </span>
-                  )
-                )}
+                {[
+                  "React",
+                  "Next.js",
+                  "JavaScript",
+                  "TypeScript",
+                  "Tailwind CSS",
+                  "Python",
+                  "FastAPI",
+                  "PostgreSQL",
+                  "AI",
+                ].map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300 backdrop-blur-sm transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </motion.div>
 
               {/* Buttons */}
@@ -108,32 +131,55 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
               >
-                <Link to="/api/v1/noor-e-nazar/Project">
+                <Link to="/projects">
                   <Button
                     label="View Projects"
                     className="w-full rounded-lg bg-white px-7 py-4 font-semibold text-black transition duration-300 hover:bg-gray-200 sm:w-auto"
                   />
                 </Link>
 
-                <Link to="/api/v1/noor-e-nazar/contact">
+                <Link to="/contact">
                   <Button
                     label="Let's Work Together"
                     className="w-full rounded-lg border border-white/20 bg-white/5 px-7 py-4 font-semibold text-white transition duration-300 hover:bg-white/10 sm:w-auto"
                   />
                 </Link>
               </motion.div>
+
+              {/* Professional experience */}
+              <motion.div
+                className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-gray-500"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 }}
+              >
+                <span>
+                  <strong className="text-gray-300">1 year</strong>{" "}
+                  professional experience
+                </span>
+
+                <span className="hidden h-1 w-1 rounded-full bg-gray-600 sm:block" />
+
+                <span>
+                  <strong className="text-gray-300">JTechsight</strong>{" "}
+                  frontend development
+                </span>
+              </motion.div>
             </motion.div>
 
-            {/* Right visual */}
+            {/* ==================== RIGHT VISUAL ==================== */}
             <motion.div
               className="relative hidden min-h-[450px] items-center justify-center lg:flex"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
+              {/* Outer rings */}
               <div className="absolute h-[320px] w-[320px] rounded-full border border-white/10" />
+
               <div className="absolute h-[420px] w-[420px] rounded-full border border-white/5" />
 
+              {/* Main card */}
               <motion.div
                 className="relative flex h-[280px] w-[280px] items-center justify-center rounded-3xl border border-white/10 bg-white/[0.04] shadow-2xl backdrop-blur-xl"
                 animate={{
@@ -151,14 +197,14 @@ const Home = () => {
                   </div>
 
                   <p className="mt-5 text-sm uppercase tracking-[0.3em] text-gray-500">
-                    Build • Ship • Improve
+                    Build · Ship · Improve
                   </p>
                 </div>
               </motion.div>
 
-              {/* Floating cards */}
+              {/* React */}
               <motion.div
-                className="absolute left-0 top-20 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl"
+                className="absolute left-0 top-16 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl"
                 animate={{ y: [0, -10, 0] }}
                 transition={{
                   duration: 3,
@@ -169,8 +215,22 @@ const Home = () => {
                 React
               </motion.div>
 
+              {/* Next.js */}
               <motion.div
-                className="absolute bottom-20 right-0 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl"
+                className="absolute right-[-10px] top-8 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl"
+                animate={{ y: [0, 10, 0] }}
+                transition={{
+                  duration: 3.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                Next.js
+              </motion.div>
+
+              {/* FastAPI */}
+              <motion.div
+                className="absolute bottom-16 right-0 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl"
                 animate={{ y: [0, 10, 0] }}
                 transition={{
                   duration: 3.5,
@@ -180,12 +240,38 @@ const Home = () => {
               >
                 FastAPI
               </motion.div>
+
+              {/* PostgreSQL */}
+              <motion.div
+                className="absolute bottom-8 left-[-10px] rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl"
+                animate={{ y: [0, -10, 0] }}
+                transition={{
+                  duration: 3.3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                PostgreSQL
+              </motion.div>
+
+              {/* JTechsight */}
+              <motion.div
+                className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl"
+                animate={{ y: [0, 8, 0] }}
+                transition={{
+                  duration: 3.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                JTechsight · 1 Year
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Existing sections — keep for now */}
+      {/* ==================== SECTIONS ==================== */}
       <Suspense
         fallback={
           <div className="bg-[#0a0a0a] py-20 text-center text-gray-400">
@@ -194,9 +280,11 @@ const Home = () => {
         }
       >
         <OfferSection />
+
         <ProjectCards />
+
         <Freelance />
-        <GoogleMap />
+
       </Suspense>
     </motion.main>
   );

@@ -19,17 +19,17 @@ const OfferSection = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-zinc-500">
-            My Toolkit
+            What I Build With
           </p>
 
           <Heading
             className="text-4xl md:text-6xl"
-            labelText="Technologies I Work With"
+            labelText="Technology Behind the Work"
           />
 
           <Paragraph
             className="mx-auto mt-6 max-w-2xl text-base text-zinc-400 md:text-lg"
-            labelText="A growing toolkit focused on modern frontend development, backend engineering, and AI-powered product development."
+            labelText="The tools I use to build responsive interfaces, full-stack applications, and AI-powered product features."
           />
         </motion.div>
 
