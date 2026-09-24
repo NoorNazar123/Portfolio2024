@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaLinkedinIn, FaQuoteLeft } from "react-icons/fa";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import linkedinRecommendation from "../assets/linkedin-recommendation.png";
 
 const Testimonials = () => {
     return (
@@ -100,14 +101,12 @@ const Testimonials = () => {
                             </p>
                         </div>
 
-                        <div className="bg-white p-3 sm:p-5">
-                            <img
-                                src="/src/assets/linkedin-recommendation.png"
-                                alt="LinkedIn recommendation from M Shadab Khan for M Noor e Nazar"
-                                className="mx-auto h-auto max-h-[700px] w-full rounded-lg object-contain"
-                                loading="lazy"
-                            />
-                        </div>
+                        <img
+                            src={linkedinRecommendation}
+                            alt="LinkedIn recommendation from M Shadab Khan for M Noor e Nazar"
+                            className="mx-auto h-auto max-h-[700px] w-full rounded-lg object-contain"
+                            loading="lazy"
+                        />
                     </motion.div>
                 </motion.div>
             </div>
