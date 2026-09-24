@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+
+>
+
+  <url>
+    <loc>https://noor-e-nazars-portfolio-vfb4.vercel.app/</loc>
+  </url>
+
+  <url>
+    <loc>https://noor-e-nazars-portfolio-vfb4.vercel.app/about</loc>
+  </url>
+
+  <url>
+    <loc>https://noor-e-nazars-portfolio-vfb4.vercel.app/projects</loc>
+  </url>
+
+  <url>
+    <loc>https://noor-e-nazars-portfolio-vfb4.vercel.app/contact</loc>
+  </url>
+</urlset>

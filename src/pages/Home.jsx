@@ -9,7 +9,6 @@ import DynamicTitle from "../components/DynamicTitle";
 const OfferSection = lazy(() => import("../components/OfferSection"));
 const Freelance = lazy(() => import("../components/Freelance"));
 const ProjectCards = lazy(() => import("../components/ProjectCards"));
-const GoogleMap = lazy(() => import("../components/GoogleMap"));
 
 const Home = () => {
   return (
